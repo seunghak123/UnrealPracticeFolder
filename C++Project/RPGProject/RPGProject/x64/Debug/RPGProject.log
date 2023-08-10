@@ -1,0 +1,8 @@
+﻿  GameManager.cpp
+  GameObject.cpp
+  main.cpp
+C:\Users\AssortRock\Desktop\UnrealTestProject\C++Project\RPGProject\RPGProject\main.cpp(9,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+  Object.cpp
+  ObjectActionFactory.cpp
+  코드를 생성하고 있습니다...
+  RPGProject.vcxproj -> C:\Users\AssortRock\Desktop\UnrealTestProject\C++Project\RPGProject\x64\Debug\RPGProject.exe

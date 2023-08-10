@@ -13,24 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Manager">
-      <UniqueIdentifier>{dd688a77-3d61-4e76-9095-3d46e604601d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\BasicClass">
-      <UniqueIdentifier>{eb826117-6bf6-401b-9d1c-65f52e3ea22a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Manager">
-      <UniqueIdentifier>{8cd659e3-4681-43fe-843e-159d95aaac02}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\BasicClass">
-      <UniqueIdentifier>{b18f0a05-cd8e-4410-9483-ab2225e00b7a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Object.h">
+    <ClCompile Include="GameObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectActionFactory.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ManagerSingleton.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SystemInfo.h">
+    <ClInclude Include="Object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="ObjectActionFactory.h">
@@ -39,34 +44,17 @@
     <ClInclude Include="ObjectInfo.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="FileUtils.h">
+    <ClInclude Include="SystemInfo.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ManagerSingleton.h">
-      <Filter>헤더 파일\BasicClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Managers.h">
-      <Filter>헤더 파일\Manager</Filter>
+    <ClInclude Include="FileUtils.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Object.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectActionFactory.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>소스 파일\Manager</Filter>
-    </ClCompile>
+    <ClInclude Include="Managers.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

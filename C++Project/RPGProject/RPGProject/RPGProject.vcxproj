@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1ae8477b-df8a-4d48-a45c-1d4a1a065d0d}</ProjectGuid>
+    <ProjectGuid>{44f61c0c-9f75-4537-98da-592f9bf794e4}</ProjectGuid>
     <RootNamespace>RPGProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -127,6 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectActionFactory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="FileUtils.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Managers.h" />
@@ -135,13 +142,6 @@
     <ClInclude Include="ObjectActionFactory.h" />
     <ClInclude Include="ObjectInfo.h" />
     <ClInclude Include="SystemInfo.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="ObjectActionFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

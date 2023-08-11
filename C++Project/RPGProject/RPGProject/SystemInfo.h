@@ -1,4 +1,5 @@
 #pragma once
+#pragma region EnumProperties
 //캐릭터 등급표
 enum E_RARITY
 {
@@ -24,7 +25,7 @@ enum E_OBJECTINFO
 
 };
 //캐릭터 행동 종류
-enum E_OBJECT_ACTION_TYPE 
+enum E_OBJECT_ACTION_TYPE
 {
 	ATTACK_OTHER,
 	MOVE_SELF,
@@ -46,7 +47,22 @@ enum E_STATVALUE_TYPE
 enum E_INGAME_TEAM_TYPE
 {
 	NONE,
+	//pvp용 팀
 	ALPAH_TEAM,
 	BETA_TEAM,
+	
+	//인던용 팀
+	USER_TEAM,
+	MONSTER_TEAM, 
 	END
 };
+enum E_INGAME_TYPE
+{
+	PVP_MODE,
+	DUNGEON_MODE,
+};
+#pragma endregion EnumProperties
+#pragma region StaticProperties
+const int TEAM_NUMBER_COUNT = 3;
+const int TEAM_MIN_NUMBER_COUNT = 1;
+#pragma endregion StaticProperties

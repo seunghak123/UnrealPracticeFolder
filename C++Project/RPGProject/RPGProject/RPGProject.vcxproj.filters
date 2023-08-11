@@ -27,7 +27,13 @@
     <ClCompile Include="ObjectActionFactory.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
+    <ClCompile Include="InGameManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TestRenderingManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,7 +1,9 @@
 ﻿  GameObject.cpp
+  InGameManager.cpp
+  Managers.cpp
   Object.cpp
-  ObjectActionFactory.cpp
+  TestRenderingManager.cpp
   main.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\main.cpp(9,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\main.cpp(10,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
   코드를 생성하고 있습니다...
   RPGProject.vcxproj -> C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\x64\Debug\RPGProject.exe

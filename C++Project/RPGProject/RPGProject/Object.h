@@ -22,7 +22,7 @@ class ObjectAction
 {
 public:	
 	E_OBJECT_ACTION_TYPE objectActionType;
-	virtual void Action();
+	virtual void Action() =0;
 	function<void()> fucLambdaPointer;
 };
 class AttackAction : public ObjectAction {
@@ -49,14 +49,11 @@ public :
 
 
 class ObjectInfo {
-public:
+public :
 	void UpdateBasicInfos(map<E_OBJECTINFO, int>);
 	void UpdateInfo(E_OBJECTINFO, int);
 	bool HasInfoValue(E_OBJECTINFO);
 	int GetInfoValue(E_OBJECTINFO);
-#if Test_Code
-	void PrintValues();
-#endif // Test_Code
 
 private :
 	E_RARITY objectRarity;	
@@ -72,4 +69,10 @@ public:
 private:
 	ObjectInfo objectInfo;
 	list<ObjectAction*> playActionLists;
+};
+class DungeonMonsterGameActor : public GameActor
+{
+public:
+	int spawnTurn;
+private :
 };

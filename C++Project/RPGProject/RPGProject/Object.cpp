@@ -1,6 +1,7 @@
 #include "Object.h"
 #include "SystemInfo.h"
 #include <iostream>
+#include "Managers.h"
 
 void ObjectInfo::UpdateBasicInfos(map<E_OBJECTINFO, int> insertMap)
 {
@@ -29,18 +30,12 @@ bool ObjectInfo::HasInfoValue(E_OBJECTINFO infoType)
 
 	return true;
 }
-#if Test_Code
-void ObjectInfo::PrintValues()
+ObjectInfo& GameActor::GetActorObjectInfo()
 {
-	for (const auto& pair : this->objectInfo) {
-		std::cout << "Key: " << (E_OBJECTINFO)pair.first << " Value: " << pair.second << std::endl;
-	}
+	return this->objectInfo;
 }
-#endif // Test_Code
 #pragma region  ActionFuction
-void ObjectAction::Action()
-{
-}
+
 #pragma region AttackAtion
 void AttackAction::Action() 
 {
@@ -59,11 +54,13 @@ void AttackAction::ActionWork()
 		this->ApplyDamage();
 	};
 	
+	//렌더링 과정 
+
 	this->fucLambdaPointer();
 }
 void AttackAction::ApplyDamage()
 {
-	printf("데미지 부여");
+	TestRenderingManager::PrintRenderingText("데미지 부여");
 }
 #pragma endregion
 #pragma region MoveAction
@@ -81,8 +78,3 @@ void HealAction::Action()
 }
 #pragma endregion HealAction
 #pragma endregion ActionFuction
-
-ObjectInfo& GameActor::GetActorObjectInfo()
-{
-	return this->objectInfo;
-}

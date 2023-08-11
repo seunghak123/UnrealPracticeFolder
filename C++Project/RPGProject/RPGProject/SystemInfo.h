@@ -1,5 +1,5 @@
 #pragma once
-///
+//캐릭터 등급표
 enum E_RARITY
 {
 	UNCOMMON,
@@ -9,7 +9,7 @@ enum E_RARITY
 	LEGENDARY,
 	MYTH,
 };
-
+// 캐릭터 스탯 종류
 enum E_OBJECTINFO
 {
 	//기본 스탯
@@ -23,6 +23,7 @@ enum E_OBJECTINFO
 	ATTACK_HP_DRAIN,
 
 };
+//캐릭터 행동 종류
 enum E_OBJECT_ACTION_TYPE 
 {
 	ATTACK_OTHER,
@@ -31,7 +32,8 @@ enum E_OBJECT_ACTION_TYPE
 	HEAL_OTHER,
 	DEFENCE_SELF,
 };
-enum E_DAMAGE_TYPE
+//캐릭터 스탯 종류
+enum E_STATVALUE_TYPE
 {
 	ATTACK_VALUE,
 	DEFENCE_VALUE,
@@ -39,4 +41,12 @@ enum E_DAMAGE_TYPE
 	SHIELD_VALUE,
 	HP_DRAIN_VALUE,
 	CRITICAL_PERCENT_VALUE,
+};
+//캐릭터 팀 종류
+enum E_INGAME_TEAM_TYPE
+{
+	NONE,
+	ALPAH_TEAM,
+	BETA_TEAM,
+	END
 };

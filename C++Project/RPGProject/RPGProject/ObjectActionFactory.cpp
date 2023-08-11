@@ -1,6 +1,6 @@
 #include "ObjectActionFactory.h"
 
-void ObejctActionFactory::InsertObjectAction(GameActor actObject, GameActor targetObject, E_OBJECT_ACTION_TYPE actionType)
+void ObejctActionFactory::InsertObjectAction(GameActor& actObject, GameActor& targetObject, E_OBJECT_ACTION_TYPE actionType)
 {
 	ObjectAction* targetAction = nullptr;
 	switch (actionType)

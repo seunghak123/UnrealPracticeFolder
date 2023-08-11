@@ -15,7 +15,7 @@ struct DamageStruct
 {
 	public :
 		GameActor* targetActor;
-		map<E_DAMAGE_TYPE, float> attackInfo;
+		map<E_STATVALUE_TYPE, float> attackInfo;
 };
 
 class ObjectAction 

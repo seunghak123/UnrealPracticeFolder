@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "Managers.h"
 #include "ManagerSingleton.h"
+#include "SystemInfo.h"
 using namespace std;
 
 void main() {
@@ -15,8 +16,8 @@ void main() {
 	ateamActor.GetActorObjectInfo().UpdateBasicInfos(ateamBasicInfoValues);
 	GameManager& instance = GameManager::getInstance();
 
-	ateamActor.RegistNextAction(new AttackAction());
-
+	instance.CreateAction(ateamActor, bteamActor, E_OBJECT_ACTION_TYPE::ATTACK_OTHER);
 
 	ateamActor.ActActions();
+	bteamActor.ActActions();
 }

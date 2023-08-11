@@ -1,6 +1,6 @@
 #include "ObjectActionFactory.h"
 
-void ObejctActionFactory::InsertObjectAction(GameActor targetObject, E_OBJECT_ACTION_TYPE actionType)
+void ObejctActionFactory::InsertObjectAction(GameActor actObject, GameActor targetObject, E_OBJECT_ACTION_TYPE actionType)
 {
 	ObjectAction* targetAction = nullptr;
 	switch (actionType)
@@ -16,6 +16,7 @@ void ObejctActionFactory::InsertObjectAction(GameActor targetObject, E_OBJECT_AC
 		targetAction = new HealAction();
 		break;
 	case DEFENCE_SELF:
+		
 		break;
 	default:
 		//俊矾 贸府
@@ -25,5 +26,5 @@ void ObejctActionFactory::InsertObjectAction(GameActor targetObject, E_OBJECT_AC
 		//俊矾贸府
 		return;
 	}
-	targetObject.RegistNextAction(targetAction);
+	actObject.RegistNextAction(targetAction);
 }

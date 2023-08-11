@@ -44,15 +44,26 @@ void ObjectAction::Action()
 #pragma region AttackAtion
 void AttackAction::Action() 
 {
-
+	DamageStruct newStruct;
+	newStruct.targetActor = nullptr;
+	ActionWork();
 }
-void AttackAction::ActionWork(DamageStruct damageStruct)
+void AttackAction::RegistTargetData(GameActor* targetObject)
 {
-	ObjectInfo targetObjectInfo = damageStruct.targetActor->GetActorObjectInfo();
-
-	//damageStruct를 이용해서 데미지 계산 및 데미지 부여
-	//targetObjectInfo.
-	//attackType
+	this->currentDamageStruct.targetActor = targetObject;
+}
+void AttackAction::ActionWork()
+{
+	this->fucLambdaPointer = [this]()
+	{
+		this->ApplyDamage();
+	};
+	
+	this->fucLambdaPointer();
+}
+void AttackAction::ApplyDamage()
+{
+	printf("데미지 부여");
 }
 #pragma endregion
 #pragma region MoveAction

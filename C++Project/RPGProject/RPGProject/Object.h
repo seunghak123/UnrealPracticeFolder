@@ -2,6 +2,7 @@
 #include "SystemInfo.h"
 #include <map>
 #include <list>
+#include <functional>
 using namespace std;
 
 class GameActor;
@@ -22,11 +23,16 @@ class ObjectAction
 public:	
 	E_OBJECT_ACTION_TYPE objectActionType;
 	virtual void Action();
+	function<void()> fucLambdaPointer;
 };
 class AttackAction : public ObjectAction {
 public:
 	void Action() override;
-	void ActionWork(DamageStruct damageStruct);
+	void RegistTargetData(GameActor* targetObject);
+	void ActionWork();
+	void ApplyDamage();
+private:
+	DamageStruct currentDamageStruct;
 };
 class MoveAction : public ObjectAction {
 private:

@@ -1,7 +1,6 @@
 #include "Managers.h"
-#include <stdio.h>
 
-void GameManager::TestPrint()
+void GameManager::CreateAction(GameActor actObject, GameActor targetObject, E_OBJECT_ACTION_TYPE actionType)
 {
-	printf("AAAA");
+	actFactory.InsertObjectAction(actObject, targetObject, actionType);
 }

@@ -6,7 +6,7 @@ void ObejctActionFactory::InsertObjectAction(GameActor& actObject, GameActor& ta
 	switch (actionType)
 	{
 	case ATTACK_OTHER:
-		targetAction = new AttackAction();
+		targetAction = new AttackAction(&actObject,&targetObject);
 		break;
 	case MOVE_OTHER:
 	case MOVE_SELF:

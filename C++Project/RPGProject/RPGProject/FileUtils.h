@@ -24,8 +24,6 @@ public:
 	static void FileSave(std::string fileName, T SaveData)
 	{
 		//특정 파일 경로로 fileName파일에 SaveData를 변환해서 저장한다
-
 		//byte[] bytedatas = SaveData.
-
 	}
 };

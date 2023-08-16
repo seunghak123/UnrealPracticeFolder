@@ -3,6 +3,9 @@
 #include <map>
 #include <list>
 #include <functional>
+#include <memory>
+#include <cstdarg>
+#include <string>
 using namespace std;
 
 class GameActor;
@@ -14,6 +17,7 @@ struct Vector2
 struct DamageStruct
 {
 	public :
+		GameActor* ownActor;
 		GameActor* targetActor;
 		map<E_STATVALUE_TYPE, float> attackInfo;
 };
@@ -27,8 +31,9 @@ public:
 };
 class AttackAction : public ObjectAction {
 public:
+	AttackAction(GameActor*, GameActor*);
 	void Action() override;
-	void RegistTargetData(GameActor* targetObject);
+	void RegistTargetData(GameActor* ownObject, GameActor* targetObject);
 	void ActionWork();
 	void ApplyDamage();
 private:
@@ -44,7 +49,9 @@ public:
 class HealAction : public ObjectAction {
 public :
 	void Action() override;
-	void ActionWork(GameActor* target, DamageStruct damageStruct);
+	void ActionWork();
+private:
+	DamageStruct currentDamageStruct;
 };
 
 
@@ -54,8 +61,12 @@ public :
 	void UpdateInfo(E_OBJECTINFO, int);
 	bool HasInfoValue(E_OBJECTINFO);
 	int GetInfoValue(E_OBJECTINFO);
-
+	void SetObjectName(string);
+	string GetObjectName();
 private :
+	string objectName;
+	int buyValue;
+	int sellValue;
 	E_RARITY objectRarity;	
 	map<E_OBJECTINFO, int> objectInfo;
 };
@@ -66,13 +77,43 @@ public:
 	void RegistNextAction(ObjectAction* nextAction);
 	void ActActions();
 	ObjectInfo& GetActorObjectInfo();
+
+	~GameActor() {
+		
+	}
 private:
 	ObjectInfo objectInfo;
-	list<ObjectAction*> playActionLists;
+	
+	list<std::unique_ptr<ObjectAction> > playActionLists;
 };
 class DungeonMonsterGameActor : public GameActor
 {
 public:
 	int spawnTurn;
 private :
+};
+/// <summary>
+/// 기본 스탯 세팅
+/// </summary>
+/// <param name="length"></param>
+/// <param name="체력, 공격력, 방어력, 실드, 스피드 , 스피드 소모량"></param>
+/// <returns></returns>
+map<E_OBJECTINFO, int> GetDefaultValue(int length,...) 
+{
+	map<E_OBJECTINFO, int> returnValueData;
+	va_list argulists;
+	va_start(argulists, length);
+	for (int i = 0; i < E_OBJECTINFO::END; i++) {
+		
+		if (i >= length) {
+			returnValueData.insert(i, 1);
+			continue;
+		}
+
+		int infoValue = va_arg(argulists, int);
+		returnValueData.insert(i, infoValue);
+	}
+	va_end(argulists);
+
+	return returnValueData;
 };

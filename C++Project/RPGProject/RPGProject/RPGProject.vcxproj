@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="InGameManager.cpp" />
-    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameActor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Managers.cpp" />
     <ClCompile Include="Object.cpp" />

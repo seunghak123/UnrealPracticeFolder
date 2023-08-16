@@ -11,6 +11,9 @@ public:
 	static void PrintRenderingText(string renderText);
 	static void PrintRenderingText(char* renderText);
 	static void RenderingLobby();
+	static void RenderingShop();
+	static void RenderingBuyingNormalUnit();
+	static void RenderingUnitLists(GameActor* renderingActors,int length);
 };
 #pragma endregion TestRendering
 

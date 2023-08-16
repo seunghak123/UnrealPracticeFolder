@@ -21,6 +21,14 @@ int ObjectInfo::GetInfoValue(E_OBJECTINFO infoType)
 	}
 	return 0;
 }
+void ObjectInfo::SetObjectName(string objectName)
+{
+	this->objectName = objectName;
+}
+string ObjectInfo::GetObjectName()
+{
+	return this->objectName;
+}
 bool ObjectInfo::HasInfoValue(E_OBJECTINFO infoType)
 {
 	auto it = this->objectInfo.find(infoType);
@@ -37,13 +45,17 @@ ObjectInfo& GameActor::GetActorObjectInfo()
 #pragma region  ActionFuction
 
 #pragma region AttackAtion
-void AttackAction::Action() 
+AttackAction::AttackAction(GameActor* ownActor, GameActor* targetActor)
+{
+	RegistTargetData(ownActor, targetActor);
+}
+void AttackAction::Action()
 {
 	DamageStruct newStruct;
 	newStruct.targetActor = nullptr;
 	ActionWork();
 }
-void AttackAction::RegistTargetData(GameActor* targetObject)
+void AttackAction::RegistTargetData(GameActor* ownObject, GameActor* targetObject)
 {
 	this->currentDamageStruct.targetActor = targetObject;
 }
@@ -60,6 +72,7 @@ void AttackAction::ActionWork()
 }
 void AttackAction::ApplyDamage()
 {
+
 	TestRenderingManager::PrintRenderingText("데미지 부여");
 }
 #pragma endregion
@@ -75,6 +88,10 @@ void MoveAction::ActionWork(Vector2 moveVector)
 #pragma region HealAction
 void HealAction::Action()
 {
+}
+void HealAction::ActionWork()
+{
+
 }
 #pragma endregion HealAction
 #pragma endregion ActionFuction

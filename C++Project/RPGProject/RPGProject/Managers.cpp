@@ -2,6 +2,7 @@
 #include <time.h>
 #include <Windows.h>
 #include <iostream>
+#include <algorithm>
 list<GameActor*> PVPTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamType)
 {
 	list<GameActor*> actorLists;
@@ -73,13 +74,7 @@ void GameManager::InitGame()
 void GameManager::EnterLobby()
 {
 	TestRenderingManager::ClearConsole();
-	TestRenderingManager::PrintRenderingText("모험을 시작합니다.");
-	TestRenderingManager::PrintRenderingText("");
-	TestRenderingManager::PrintRenderingText("===모드를 선택해주세요===");
-	TestRenderingManager::PrintRenderingText("1.스토리모드");
-	TestRenderingManager::PrintRenderingText("2.PvP모드");
-	TestRenderingManager::PrintRenderingText("3.상점");
-	TestRenderingManager::PrintRenderingText("4.덱 세팅");
+	TestRenderingManager::RenderingLobby();
 	Sleep(1000);
 	cout <<endl<< "번호 선택 : ";
 	int enterMode = 0;
@@ -112,7 +107,23 @@ void GameManager::EnterPvPMode()
 void GameManager::EnterShop()
 {
 	TestRenderingManager::ClearConsole();
-	TestRenderingManager::PrintRenderingText("1.유닛 구매");
-	TestRenderingManager::PrintRenderingText("2.유닛 판매");
-	TestRenderingManager::PrintRenderingText("3.랜덤 유닛 구매");
+	TestRenderingManager::RenderingShop();
+
+	cout << endl << "번호 선택 : ";
+	int enterMode = 0;
+
+	std::cin.clear();
+	cin >> enterMode;
+	switch (enterMode) {
+	case 1:
+		TestRenderingManager::RenderingBuyingNormalUnit();
+		//기본 상점 유닛 렌더링
+		break;
+	case 2:
+		//현재 유저 유닛 렌더링
+		break;
+	case 3:
+		//일반유닛인데 약간 스텟이 랜덤인 유닛 제공 다만 종류는 랜덤
+		break;
+	}
 }

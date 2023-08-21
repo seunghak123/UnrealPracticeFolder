@@ -1,2 +1,84 @@
-﻿  Managers.cpp
+﻿  InGameManager.cpp
+  GameActor.cpp
+  main.cpp
+C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\main.cpp(10,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+  Managers.cpp
+  Object.cpp
+  TestRenderingManager.cpp
+  UserDataManager.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(144,1): warning C4267: '초기화 중': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,1): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Tuple_val<_This>::_Tuple_val<_Ty>(_Other &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _This=int,
+              _Ty=unsigned __int64,
+              _Other=unsigned __int64
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,81): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Tuple_val<_This>::_Tuple_val<_Ty>(_Other &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _This=int,
+              _Ty=unsigned __int64,
+              _Other=unsigned __int64
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,1): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<int>::tuple<std::_Exact_args_t,_Ty,,0>(_Tag,_This2 &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=unsigned __int64,
+              _Tag=std::_Exact_args_t,
+              _This2=unsigned __int64
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(239,18): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<int>::tuple<std::_Exact_args_t,_Ty,,0>(_Tag,_This2 &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=unsigned __int64,
+              _Tag=std::_Exact_args_t,
+              _This2=unsigned __int64
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(802,5): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::_Exact_args_t,std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64,0>(_Tag,_This2 &&,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Tag=std::_Exact_args_t,
+              _This2=std::vector<GameActor,std::allocator<GameActor>>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(802,12): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::_Exact_args_t,std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64,0>(_Tag,_This2 &&,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Tag=std::_Exact_args_t,
+              _This2=std::vector<GameActor,std::allocator<GameActor>>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(246,1): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::_Unpack_tuple_t,_Ty,0,1,0>(_Tag,_Tpl &&,std::integer_sequence<size_t,0,1>)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>,
+              _Tag=std::_Unpack_tuple_t,
+              _Tpl=std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(246,16): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::_Unpack_tuple_t,_Ty,0,1,0>(_Tag,_Tpl &&,std::integer_sequence<size_t,0,1>)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>,
+              _Tag=std::_Unpack_tuple_t,
+              _Tpl=std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(312,1): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::_Unpack_tuple_t,std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>,0>(_Tag,_Tpl &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Tag=std::_Unpack_tuple_t,
+              _Tpl=std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\tuple(312,16): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::_Unpack_tuple_t,std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>,0>(_Tag,_Tpl &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Tag=std::_Unpack_tuple_t,
+              _Tpl=std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64>
+          ]
+C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\UserDataManager.cpp(47,62): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64,0>(std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64> &&) noexcept'에 대한 참조를 확인하세요.
+C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\UserDataManager.cpp(47,2): message : 컴파일되는 함수 템플릿 인스턴스화 'std::tuple<std::vector<GameActor,std::allocator<GameActor>>,int>::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64,0>(std::tuple<std::vector<GameActor,std::allocator<GameActor>>,unsigned __int64> &&) noexcept'에 대한 참조를 확인하세요.
+  코드를 생성하고 있습니다...
+C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\UserData.h(40): warning C4715: 'UserData::SellCard': 모든 제어 경로에서 값을 반환하지는 않습니다.
   RPGProject.vcxproj -> C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\x64\Debug\RPGProject.exe

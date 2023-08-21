@@ -15,7 +15,10 @@ namespace TestTool {
 		static void PrintRenderingText(char* renderText);
 		static void RenderingLobby();
 		static void RenderingShop();
+		static void RenderingBuySellUnit(GameActor* renderingActors, int arrayLength, int linePrintCount, int pageIndex, bool isSell);
 		static void RenderingUnitLists(GameActor* renderingActors, int length,int linePrintCount, int pageindex = 0);
+		static void RenderingStoryMode();
+		static void RenderingStoryInGame();
 	};
 }
 #pragma endregion TestRendering
@@ -53,6 +56,7 @@ public:
 	void EnterNormalShop();
 	void EnterRandomShop();
 	void EnterSellShop();
+	void EnterDeckSetting();
 };
 class TeamManager 
 {

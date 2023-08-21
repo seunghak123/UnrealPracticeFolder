@@ -6,6 +6,7 @@
 #include <memory>
 #include <cstdarg>
 #include <string>
+
 using namespace std;
 
 class GameActor;
@@ -57,10 +58,23 @@ private:
 
 class ObjectInfo {
 public :
+	ObjectInfo(const ObjectInfo& other) :
+		objectUID(other.objectUID),
+		objectName(other.objectName),
+		objectRarity(other.objectRarity),
+		buyValue(other.buyValue),
+		sellValue(other.sellValue)
+	{
+		this->objectInfo = map<E_OBJECTINFO, int>();
+		for (auto datas : other.objectInfo) 
+		{
+			this->objectInfo[datas.first] = datas.second;
+		}
+	}
 	void UpdateBasicInfos(map<E_OBJECTINFO, int>);
 	void UpdateInfo(E_OBJECTINFO, int);
-	bool HasInfoValue(E_OBJECTINFO);
-	int GetInfoValue(E_OBJECTINFO);
+	bool HasInfoValue(E_OBJECTINFO) ;
+	int GetInfoValue(E_OBJECTINFO) ;
 	void SetObjectName(string);
 	string GetObjectName();
 	map<E_OBJECTINFO, int> GetObjectInfoMap();
@@ -72,7 +86,14 @@ public :
 	void SetPriceValue(int buyPrice, int sellPrice);
 	int GetBuyPriceValue();
 	int GetSellPriceValue();
+	string GetUniqueId() {
+		return objectUID;
+	}
+	ObjectInfo() {
+		objectUID = GenerateUUID();
+	}
 private :
+	string objectUID;
 	string objectName;
 	int buyValue;
 	int sellValue;
@@ -89,8 +110,19 @@ public:
 	};
 	void ActActions();
 	ObjectInfo& GetActorObjectInfo();
-
-	~GameActor() {
+	GameActor() 
+	{
+		
+	}
+	GameActor(const GameActor& other) 
+	{
+		objectInfo = ObjectInfo(other.objectInfo);
+	}
+	GameActor(const ObjectInfo& infoData) {
+		objectInfo = ObjectInfo(infoData);
+	}
+	~GameActor() 
+	{
 		
 	}
 private:

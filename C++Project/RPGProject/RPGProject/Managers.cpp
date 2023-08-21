@@ -7,7 +7,8 @@
 using namespace TestTool;
 
 int pageIndex = 0;
-
+GameActor normalUnits[8];
+void InsertShopData();
 list<GameActor*> PVPTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamType)
 {
 	list<GameActor*> actorLists;
@@ -60,6 +61,7 @@ list<GameActor*> DungeonTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamTyp
 
 void GameManager::InitGame()
 {
+	InsertShopData();
 	system("mode con cols=160 lines=40 | title TextRPG");
 	TestRenderingManager::PrintRenderingText("게임을 시작합니다");
 	Sleep(1000);
@@ -96,19 +98,36 @@ void GameManager::EnterLobby()
 	case 3:
 		EnterShop();
 		break;
+	case 4:
+		EnterDeckSetting();
+		break;
 	}
 }
-
 void GameManager::EnterStoryMode()
 {
 	TestRenderingManager::ClearConsole();
-}
+	TestRenderingManager::RenderingStoryMode();
+	cout << endl << "번호 선택 : ";
+	int enterMode = 0;
+	std::cin.clear();
+	cin >> enterMode;
 
+	switch (enterMode) {
+	case 1:
+
+		break;
+	case 2:
+		EnterDeckSetting();
+		break;
+	case 99:
+		EnterLobby();
+		break;
+	}
+}
 void GameManager::EnterPvPMode()
 {
 	TestRenderingManager::ClearConsole();
 }
-
 void GameManager::EnterShop()
 {
 	TestRenderingManager::ClearConsole();
@@ -127,10 +146,12 @@ void GameManager::EnterShop()
 		//기본 상점 유닛 렌더링
 		break;
 	case 2:
+		pageIndex = 0;
+		EnterSellShop();
 		//현재 유저 유닛 렌더링
 		break;
 	case 3:
-		//일반유닛인데 약간 스텟이 랜덤인 유닛 제공 다만 종류는 랜덤
+
 		break;
 	case 99:
 		EnterLobby();
@@ -138,9 +159,121 @@ void GameManager::EnterShop()
 }
 void GameManager::EnterNormalShop()
 {
-#pragma region TestDataInput
 
-	GameActor normalUnits[8];
+	int linePrintCount = 3;
+	int arrayLength = 8;
+	int maxIndex = arrayLength % linePrintCount == 0 ? arrayLength / linePrintCount : arrayLength / linePrintCount + 1;
+	TestRenderingManager::RenderingUnitLists(normalUnits, arrayLength,linePrintCount,pageIndex);
+	TestRenderingManager::RenderingBuySellUnit(normalUnits, arrayLength, linePrintCount, pageIndex, false);
+	std::cin.clear();
+
+	char selectNum = 0;
+	cin >> selectNum;
+	switch (selectNum)
+	{
+	case '1':
+	case '2':
+	case '3':
+		if (pageIndex * linePrintCount + ( selectNum - '1') < arrayLength)
+		{
+			UserDataManager::getInstance().userData.BuyCard(GameActor(normalUnits[pageIndex * linePrintCount + (selectNum - '1')]));
+		}
+		EnterShop();
+		break;
+	case 'a':
+		if (maxIndex >= 2)
+		{
+			if (pageIndex > 0)
+			{
+				pageIndex--;
+			}
+		}
+		EnterNormalShop();
+		break;
+	case 'b':
+		if (maxIndex >= 2)
+		{
+			if (pageIndex < maxIndex - 1)
+			{
+				pageIndex++;
+			}
+		}
+		EnterNormalShop();
+		break;
+	case 'e':
+		EnterShop();
+		break;
+	}
+	
+}
+void GameManager::EnterRandomShop()
+{
+}
+void GameManager::EnterSellShop()
+{
+	tuple<vector<GameActor>, int> cardLists =  UserDataManager::getInstance().userData.GetUserCardLists();
+
+	int linePrintCount = 3;
+	vector<GameActor> getArray = get<0>(cardLists); 
+
+	int arrayLength = get<1>(cardLists);
+	int maxIndex = arrayLength % linePrintCount == 0 ? arrayLength / linePrintCount : arrayLength / linePrintCount + 1;
+	TestRenderingManager::RenderingUnitLists(getArray.data(), arrayLength, linePrintCount, pageIndex);
+	TestRenderingManager::RenderingBuySellUnit(getArray.data(), arrayLength, linePrintCount, pageIndex, true);
+
+	std::cin.clear();
+
+	char selectNum = 0;
+	cin >> selectNum;
+	switch (selectNum)
+	{
+	case '1':
+	case '2':
+	case '3':
+		if (pageIndex * linePrintCount + (selectNum - '1') < arrayLength)
+		{
+			UserDataManager::getInstance().userData.SellCard(std::move(new GameActor( getArray.data()[pageIndex * linePrintCount + (selectNum - '1')])));
+		}
+		EnterShop();
+		break;
+	case 'a':
+		if (maxIndex >= 2)
+		{
+			if (pageIndex > 0)
+			{
+				pageIndex--;
+			}
+		}
+		EnterSellShop();
+		break;
+	case 'b':
+		if (maxIndex >= 2)
+		{
+			if (pageIndex < maxIndex - 1)
+			{
+				pageIndex++;
+			}
+		}
+		EnterSellShop();
+		break;
+	case 'e':
+		EnterShop();
+		break;
+	}
+}
+void GameManager::EnterDeckSetting()
+{
+	tuple<vector<GameActor>, int> cardLists = UserDataManager::getInstance().userData.GetUserCardLists();
+
+	int linePrintCount = 3;
+	vector<GameActor> getArray = get<0>(cardLists);
+
+	int arrayLength = get<1>(cardLists);
+	int maxIndex = arrayLength % linePrintCount == 0 ? arrayLength / linePrintCount : arrayLength / linePrintCount + 1;
+	TestRenderingManager::RenderingUnitLists(getArray.data(), arrayLength, linePrintCount, pageIndex);
+}
+void InsertShopData() 
+{
 	//데이터 입력 구문(차후 파일 읽거나 csv파일등 데이터 파일 읽는 것으로 변환 또는 유닛 데이터를 알 방법이 필요)
 
 	normalUnits[0] = GameActor();
@@ -182,58 +315,5 @@ void GameManager::EnterNormalShop()
 	normalUnits[7].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 20, 3, 3, 0, 10, 15));
 	normalUnits[7].GetActorObjectInfo().SetObjectName("전사3");
 	normalUnits[7].GetActorObjectInfo().SetPriceValue(70, 35);
-#pragma endregion TestDataInput
-	int linePrintCount = 3;
-	int arrayLength = 8;
-	int maxIndex = arrayLength % linePrintCount == 0 ? arrayLength / linePrintCount : arrayLength / linePrintCount + 1;
-	TestRenderingManager::RenderingUnitLists(normalUnits, arrayLength,linePrintCount,pageIndex);
-	
-	std::cin.clear();
 
-	char selectNum = 0;
-	cin >> selectNum;
-	switch (selectNum)
-	{
-	case '1':
-	case '2':
-	case '3':
-		if (pageIndex * linePrintCount + ( selectNum - '1') < arrayLength)
-		{
-			UserDataManager::getInstance().userData.BuyCard(normalUnits[pageIndex * linePrintCount + (selectNum - 1)]);
-		}
-		EnterShop();
-		break;
-	case 'a':
-		if (maxIndex >= 2)
-		{
-			if (pageIndex > 0)
-			{
-				pageIndex--;
-			}
-		}
-		EnterNormalShop();
-		break;
-	case 'b':
-		if (maxIndex >= 2)
-		{
-			if (pageIndex < maxIndex - 1)
-			{
-				pageIndex++;
-			}
-		}
-		EnterNormalShop();
-		break;
-	case 'e':
-		EnterShop();
-		break;
-	}
-	
-}
-
-void GameManager::EnterRandomShop()
-{
-}
-
-void GameManager::EnterSellShop()
-{
 }

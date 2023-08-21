@@ -14,7 +14,7 @@ void ObjectInfo::UpdateInfo(E_OBJECTINFO infoType, int infoValue)
 {
 	this->objectInfo[infoType] = infoValue;
 }
-int ObjectInfo::GetInfoValue(E_OBJECTINFO infoType)
+int ObjectInfo::GetInfoValue(E_OBJECTINFO infoType) 
 {
 	if (this->HasInfoValue(infoType)) 
 	{

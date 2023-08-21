@@ -1,6 +1,7 @@
 #pragma once
 #pragma region EnumProperties
 #include <map>
+#include <string>
 //캐릭터 등급표
 enum E_RARITY
 {
@@ -66,12 +67,19 @@ enum E_WEALTH_TYPE
 {
 	GOLD,
 };
+enum E_RANDOM_UNIT_TYPE
+{
+	WARRIOR,
+	ARCHER,
+	MAGICAN,
+};
 #pragma endregion EnumProperties
 namespace GlobalVariables 
 {
 #pragma region StaticProperties
 	extern const int TEAM_NUMBER_COUNT;
 	extern const int TEAM_MIN_NUMBER_COUNT;
+	extern const std::map<E_INGAME_TYPE, std::string> INGAME_TYPE_TOSTRING;
 #pragma endregion StaticProperties
 
 
@@ -80,3 +88,4 @@ namespace GlobalVariables
 	extern const char* EMPTY_STRING ;
 #pragma endregion
 }
+char* GenerateUUID();

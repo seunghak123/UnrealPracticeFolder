@@ -1,6 +1,6 @@
 #include <string>
 #include "UserData.h"
-
+#include <vector>
 int UserData::GetUserLv() 
 {
 	int userLv = 1;
@@ -30,7 +30,19 @@ list<ObjectInfo> UserData::GetUserCardDatas()
 	return userCardDatas;
 }
 
-void UserData::AddUserCardDatas(GameActor addCardInfo)
+void UserData::AddUserCardDatas(GameActor& addCardInfo)
 {
 	this->userCardDatas.push_back(addCardInfo.GetActorObjectInfo());
+}
+
+tuple<vector<GameActor> ,int> UserData::GetUserCardLists()
+{
+	vector<GameActor> userCardArray;
+	int index = 0;
+	for (auto cardinfo : this->userCardDatas) 
+	{
+		userCardArray.push_back( *(new GameActor(cardinfo)));
+	}
+
+	return make_tuple(userCardArray, this->userCardDatas.size());
 }

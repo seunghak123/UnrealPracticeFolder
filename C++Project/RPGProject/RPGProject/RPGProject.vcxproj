@@ -138,6 +138,7 @@
     <ClCompile Include="UserDataManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleManager.h" />
     <ClInclude Include="FileUtils.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Managers.h" />

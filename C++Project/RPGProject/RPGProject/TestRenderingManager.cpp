@@ -1,66 +1,88 @@
 #include "Managers.h"
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
+#include <string>
+#include <conio.h>
 
 using namespace std;
-void TestRenderingManager::ClearConsole()
+namespace TestTool 
 {
-	system("cls");
-}
-void TestRenderingManager::PrintRenderingText(string renderText)
-{
-	cout << renderText << endl;
-}
+	void TestRenderingManager::ClearConsole()
+	{
+		system("cls");
+	}
+	void TestRenderingManager::PrintRenderingText(char* renderText)
+	{
+		cout << renderText << endl;
+	}
+	void TestRenderingManager::PrintRenderingText(string renderText)
+	{
+		cout << renderText << endl;
+	}
+	void TestRenderingManager::RenderingLobby()
+	{
+		TestRenderingManager::PrintRenderingText("모험을 시작합니다.");
+		TestRenderingManager::PrintRenderingText("");
+		TestRenderingManager::PrintRenderingText("===모드를 선택해주세요===");
+		TestRenderingManager::PrintRenderingText("1.스토리모드");
+		TestRenderingManager::PrintRenderingText("2.PvP모드");
+		TestRenderingManager::PrintRenderingText("3.상점");
+		TestRenderingManager::PrintRenderingText("4.덱 세팅");
+	}
+	void TestRenderingManager::RenderingShop()
+	{
+		TestRenderingManager::PrintRenderingText("1.유닛 구매");
+		TestRenderingManager::PrintRenderingText("2.유닛 판매");
+		TestRenderingManager::PrintRenderingText("3.랜덤 유닛 구매");
+		TestRenderingManager::PrintRenderingText("99.로비로 이동");
+	}
 
-void TestRenderingManager::PrintRenderingText(char* renderText)
-{
-	cout << renderText << endl;
-}
+	void TestRenderingManager::RenderingUnitLists(GameActor* renderingActors, int arrayLength,int linePrintCount,int pageIndex )
+	{
+		ClearConsole();
+		cout << "일반 유닛 상점" << endl;
+		cout << right << setw(40) << UserDataManager::getInstance().userData.GetUserWealth(E_WEALTH_TYPE::GOLD)<<endl;
+		int maxIndex = arrayLength%linePrintCount == 0? arrayLength / linePrintCount : arrayLength / linePrintCount + 1;
 
-void TestRenderingManager::RenderingLobby()
-{
-	TestRenderingManager::PrintRenderingText("모험을 시작합니다.");
-	TestRenderingManager::PrintRenderingText("");
-	TestRenderingManager::PrintRenderingText("===모드를 선택해주세요===");
-	TestRenderingManager::PrintRenderingText("1.스토리모드");
-	TestRenderingManager::PrintRenderingText("2.PvP모드");
-	TestRenderingManager::PrintRenderingText("3.상점");
-	TestRenderingManager::PrintRenderingText("4.덱 세팅");
-}
-void TestRenderingManager::RenderingShop() 
-{
-	TestRenderingManager::PrintRenderingText("1.유닛 구매");
-	TestRenderingManager::PrintRenderingText("2.유닛 판매");
-	TestRenderingManager::PrintRenderingText("3.랜덤 유닛 구매");
-}
-
-void TestRenderingManager::RenderingBuyingNormalUnit()
-{
-	GameActor normalUnits[3];
-	//데이터 입력 구문(차후 파일 읽거나 csv파일등 데이터 파일 읽는 것으로 변환 또는 유닛 데이터를 알 방법이 필요)
-
-	normalUnits[0] = GameActor();
-	normalUnits[0].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 12, 5 , 1, 0, 10, 10));
-	normalUnits[0].GetActorObjectInfo().SetObjectName("궁수");
-
-	normalUnits[1] = GameActor();
-	normalUnits[1].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 20, 3, 3, 0, 10, 15));
-	normalUnits[1].GetActorObjectInfo().SetObjectName("전사");
-
-	normalUnits[2] = GameActor();
-	normalUnits[2].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 8, 20, 0, 0, 10, 20));
-	normalUnits[2].GetActorObjectInfo().SetObjectName("마법사");
-
-	//데이터 입력 구문
-	list<GameActor> normalUnitLists;
-	std::copy_if(std::begin(normalUnits), std::end(normalUnits), std::back_inserter(normalUnitLists), [](GameActor insertActor)
+		for (int j = 0; j < linePrintCount && pageIndex * linePrintCount + j < arrayLength; j++)
 		{
-			return 1;
+			cout << left << setw(20) << renderingActors[pageIndex*linePrintCount + j].GetActorObjectInfo().GetObjectName();
 		}
-	);
-	RenderingUnitLists(normalUnits, 3);
-}
-void TestRenderingManager::RenderingUnitLists(GameActor* renderingActors,int arrayLength)
-{
-	
+		cout << endl;
+		for (auto autoInfo : INFOTYPE_TOSTRING)
+		{
+			for (int j = 0; j < linePrintCount && pageIndex * linePrintCount + j < arrayLength; j++)
+			{
+				string printString = INFOTYPE_TOSTRING.at(autoInfo.first);
+				printString += to_string(renderingActors[pageIndex * linePrintCount + j].GetActorObjectInfo().GetInfoValue(autoInfo.first));
+				cout << left << setw(20) << printString;
+			}
+			cout << endl;
+		}
+		cout << endl;
+		for (int j = 0; j < linePrintCount && pageIndex * linePrintCount + j < arrayLength; j++)
+		{
+			string printString = "가격 :";
+			printString += to_string(renderingActors[pageIndex * linePrintCount + j].GetActorObjectInfo().GetBuyPriceValue());
+			cout << left << setw(20) << printString;
+		}
+		cout << endl;
+		
+		if (maxIndex >= 2)
+		{
+			cout << "구매 1,2,3 키 나가기(e)" << endl;
+			string pagingString;
+			if (pageIndex > 0)
+			{
+				pagingString += "<-(a key)";
+			}
+			if (pageIndex < maxIndex-1)
+			{
+				pagingString += "(b key) ->";
+			}
+			cout << left << setw(20) << pagingString<<endl;
+		}
+		cout << "입력 : ";
+	}
 }

@@ -3,6 +3,11 @@
 #include <Windows.h>
 #include <iostream>
 #include <algorithm>
+
+using namespace TestTool;
+
+int pageIndex = 0;
+
 list<GameActor*> PVPTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamType)
 {
 	list<GameActor*> actorLists;
@@ -11,7 +16,7 @@ list<GameActor*> PVPTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamType)
 	case ALPAH_TEAM:
 	case BETA_TEAM:
 		//유저의 팀 데이터를 가져와서, 데이터 복사, 캐릭터 데이터를 팀에 세팅
-		for (int i = 0; i < TEAM_NUMBER_COUNT; i++)
+		for (int i = 0; i <GlobalVariables::TEAM_NUMBER_COUNT; i++)
 		{
 			GameActor* newGameActor = new GameActor();
 			//기본데이터 입력
@@ -31,7 +36,7 @@ list<GameActor*> DungeonTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamTyp
 	{
 	case USER_TEAM:
 		//유저의 팀 데이터를 가져와서, 데이터 복사, 캐릭터 데이터를 팀에 세팅
-		for (int i = 0; i < TEAM_NUMBER_COUNT; i++)
+		for (int i = 0; i < GlobalVariables::TEAM_NUMBER_COUNT; i++)
 		{
 			GameActor* newGameActor = new GameActor();
 			//기본데이터 입력
@@ -44,7 +49,7 @@ list<GameActor*> DungeonTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamTyp
 		for (int i = 0; i < teamNumberCount; i++) 
 		{
 			DungeonMonsterGameActor* newMonsterGameActor = new DungeonMonsterGameActor();
-			newMonsterGameActor->spawnTurn = i / TEAM_NUMBER_COUNT + 1;
+			newMonsterGameActor->spawnTurn = i / GlobalVariables::TEAM_NUMBER_COUNT + 1;
 			//newMonsterGameActor->GetActorObjectInfo().UpdateBasicInfos();
 			actorLists.push_back(newMonsterGameActor);
 		}
@@ -116,7 +121,9 @@ void GameManager::EnterShop()
 	cin >> enterMode;
 	switch (enterMode) {
 	case 1:
-		TestRenderingManager::RenderingBuyingNormalUnit();
+		pageIndex = 0;
+		EnterNormalShop();
+
 		//기본 상점 유닛 렌더링
 		break;
 	case 2:
@@ -125,5 +132,108 @@ void GameManager::EnterShop()
 	case 3:
 		//일반유닛인데 약간 스텟이 랜덤인 유닛 제공 다만 종류는 랜덤
 		break;
+	case 99:
+		EnterLobby();
 	}
+}
+void GameManager::EnterNormalShop()
+{
+#pragma region TestDataInput
+
+	GameActor normalUnits[8];
+	//데이터 입력 구문(차후 파일 읽거나 csv파일등 데이터 파일 읽는 것으로 변환 또는 유닛 데이터를 알 방법이 필요)
+
+	normalUnits[0] = GameActor();
+	normalUnits[0].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 12, 5, 1, 0, 10, 10));
+	normalUnits[0].GetActorObjectInfo().SetObjectName("궁수");
+	normalUnits[0].GetActorObjectInfo().SetPriceValue(50, 25);
+
+	normalUnits[1] = GameActor();
+	normalUnits[1].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 20, 3, 3, 0, 10, 15));
+	normalUnits[1].GetActorObjectInfo().SetObjectName("전사");
+	normalUnits[1].GetActorObjectInfo().SetPriceValue(70, 35);
+
+	normalUnits[2] = GameActor();
+	normalUnits[2].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 8, 20, 0, 0, 10, 20));
+	normalUnits[2].GetActorObjectInfo().SetObjectName("마법사");
+	normalUnits[2].GetActorObjectInfo().SetPriceValue(100, 50);
+
+	normalUnits[3] = GameActor();
+	normalUnits[3].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 12, 5, 1, 0, 10, 10));
+	normalUnits[3].GetActorObjectInfo().SetObjectName("궁수2");
+	normalUnits[3].GetActorObjectInfo().SetPriceValue(50, 25);
+
+	normalUnits[4] = GameActor();
+	normalUnits[4].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 20, 3, 3, 0, 10, 15));
+	normalUnits[4].GetActorObjectInfo().SetObjectName("전사2");
+	normalUnits[4].GetActorObjectInfo().SetPriceValue(70, 35);
+
+	normalUnits[5] = GameActor();
+	normalUnits[5].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 8, 20, 0, 0, 10, 20));
+	normalUnits[5].GetActorObjectInfo().SetObjectName("마법사2");
+	normalUnits[5].GetActorObjectInfo().SetPriceValue(100, 50);
+
+	normalUnits[6] = GameActor();
+	normalUnits[6].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 12, 5, 1, 0, 10, 10));
+	normalUnits[6].GetActorObjectInfo().SetObjectName("궁수3");
+	normalUnits[6].GetActorObjectInfo().SetPriceValue(50, 25);
+
+	normalUnits[7] = GameActor();
+	normalUnits[7].GetActorObjectInfo().UpdateBasicInfos(GetDefaultValue(6, 20, 3, 3, 0, 10, 15));
+	normalUnits[7].GetActorObjectInfo().SetObjectName("전사3");
+	normalUnits[7].GetActorObjectInfo().SetPriceValue(70, 35);
+#pragma endregion TestDataInput
+	int linePrintCount = 3;
+	int arrayLength = 8;
+	int maxIndex = arrayLength % linePrintCount == 0 ? arrayLength / linePrintCount : arrayLength / linePrintCount + 1;
+	TestRenderingManager::RenderingUnitLists(normalUnits, arrayLength,linePrintCount,pageIndex);
+	
+	std::cin.clear();
+
+	char selectNum = 0;
+	cin >> selectNum;
+	switch (selectNum)
+	{
+	case '1':
+	case '2':
+	case '3':
+		if (pageIndex * linePrintCount + ( selectNum - '1') < arrayLength)
+		{
+			UserDataManager::getInstance().userData.BuyCard(normalUnits[pageIndex * linePrintCount + (selectNum - 1)]);
+		}
+		EnterShop();
+		break;
+	case 'a':
+		if (maxIndex >= 2)
+		{
+			if (pageIndex > 0)
+			{
+				pageIndex--;
+			}
+		}
+		EnterNormalShop();
+		break;
+	case 'b':
+		if (maxIndex >= 2)
+		{
+			if (pageIndex < maxIndex - 1)
+			{
+				pageIndex++;
+			}
+		}
+		EnterNormalShop();
+		break;
+	case 'e':
+		EnterShop();
+		break;
+	}
+	
+}
+
+void GameManager::EnterRandomShop()
+{
+}
+
+void GameManager::EnterSellShop()
+{
 }

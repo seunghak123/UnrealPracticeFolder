@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Managers.h"
 
+using namespace TestTool;
 void ObjectInfo::UpdateBasicInfos(map<E_OBJECTINFO, int> insertMap)
 {
 	for (const auto& pair : insertMap) {
@@ -28,6 +29,23 @@ void ObjectInfo::SetObjectName(string objectName)
 string ObjectInfo::GetObjectName()
 {
 	return this->objectName;
+}
+map<E_OBJECTINFO, int> ObjectInfo::GetObjectInfoMap()
+{
+	return this->objectInfo;
+}
+void ObjectInfo::SetPriceValue(int buyPrice, int sellPrice)
+{
+	this->buyValue = buyPrice;
+	this->sellValue = sellPrice;
+}
+int ObjectInfo::GetBuyPriceValue()
+{
+	return this->buyValue;
+}
+int ObjectInfo::GetSellPriceValue()
+{
+	return this->sellValue;
 }
 bool ObjectInfo::HasInfoValue(E_OBJECTINFO infoType)
 {
@@ -73,7 +91,6 @@ void AttackAction::ActionWork()
 void AttackAction::ApplyDamage()
 {
 
-	TestRenderingManager::PrintRenderingText("데미지 부여");
 }
 #pragma endregion
 #pragma region MoveAction
@@ -95,3 +112,30 @@ void HealAction::ActionWork()
 }
 #pragma endregion HealAction
 #pragma endregion ActionFuction
+
+map<E_OBJECTINFO, int> GetDefaultValue(int length, ...)
+{
+	map<E_OBJECTINFO, int> returnValueData;
+	va_list argulists;
+	va_start(argulists, length);
+	for (int i = 0; i < E_OBJECTINFO::INFO_END; i++) {
+
+		if (i >= length) {
+			returnValueData[(E_OBJECTINFO)i]= 1;
+			continue;
+		}
+
+		int infoValue = va_arg(argulists, int);
+		returnValueData[(E_OBJECTINFO)i] = infoValue;
+	}
+	va_end(argulists);
+
+	return returnValueData;
+};
+
+const std::map<E_OBJECTINFO,string> INFOTYPE_TOSTRING = {
+	{E_OBJECTINFO::ATTACK,"공격력 :"},{E_OBJECTINFO::DEFENCE,"방어력 :"},
+	{E_OBJECTINFO::HP,"체력 :"},{E_OBJECTINFO::SHIELD,"실드량 :"},
+	{E_OBJECTINFO::SPEED,"속도 :"},{E_OBJECTINFO::CUNSUME_SPEED,"속도 소모량 :"},
+	{E_OBJECTINFO::ATTACK_HP_DRAIN,"흡혈량 :"} 
+};

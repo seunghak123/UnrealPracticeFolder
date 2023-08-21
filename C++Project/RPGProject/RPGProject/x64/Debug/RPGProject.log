@@ -1,16 +1,2 @@
-﻿  GameActor.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\object.h(92,11): error C2059: 구문 오류: ':'
-  InGameManager.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\Object.h(92,11): error C2059: 구문 오류: ':'
-  Managers.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\Object.h(92,11): error C2059: 구문 오류: ':'
-  Object.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\Object.h(92,11): error C2059: 구문 오류: ':'
-  ObjectActionFactory.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\Object.h(92,11): error C2059: 구문 오류: ':'
-  TestRenderingManager.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\Object.h(92,11): error C2059: 구문 오류: ':'
-  main.cpp
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\Object.h(92,11): error C2059: 구문 오류: ':'
-C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\RPGProject\main.cpp(10,13): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-  코드를 생성하고 있습니다...
+﻿  Managers.cpp
+  RPGProject.vcxproj -> C:\Users\AssortRock\Desktop\Seunghak\C++Project\RPGProject\x64\Debug\RPGProject.exe

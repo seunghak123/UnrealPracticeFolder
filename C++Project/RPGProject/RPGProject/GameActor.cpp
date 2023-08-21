@@ -1,9 +1,5 @@
 #include "object.h"
 #include "Managers.h"
-void GameActor::RegistNextAction(ObjectAction* nextAction)
-{
-	this->playActionLists.push_back(make_unique<ObjectAction>(nextAction));
-}
 
 void GameActor::ActActions()
 {

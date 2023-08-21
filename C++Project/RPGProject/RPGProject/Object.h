@@ -63,6 +63,15 @@ public :
 	int GetInfoValue(E_OBJECTINFO);
 	void SetObjectName(string);
 	string GetObjectName();
+	map<E_OBJECTINFO, int> GetObjectInfoMap();
+	/// <summary>
+	/// 카드 가격 정하는 함수(초기화 할때만 호출 차후 엑셀 데이터에서 변경할 것
+	/// </summary>
+	/// <param name="buyPrice">구매 가격</param>
+	/// <param name="sellPrice">판매 가격</param>
+	void SetPriceValue(int buyPrice, int sellPrice);
+	int GetBuyPriceValue();
+	int GetSellPriceValue();
 private :
 	string objectName;
 	int buyValue;
@@ -74,7 +83,10 @@ private :
 class GameActor
 {
 public:
-	void RegistNextAction(ObjectAction* nextAction);
+	void RegistNextAction(ObjectAction* nextAction) 
+	{
+		this->playActionLists.push_back(shared_ptr<ObjectAction>(nextAction));
+	};
 	void ActActions();
 	ObjectInfo& GetActorObjectInfo();
 
@@ -84,7 +96,7 @@ public:
 private:
 	ObjectInfo objectInfo;
 	
-	list<std::unique_ptr<ObjectAction> > playActionLists;
+	list<shared_ptr<ObjectAction>> playActionLists;
 };
 class DungeonMonsterGameActor : public GameActor
 {
@@ -98,22 +110,5 @@ private :
 /// <param name="length"></param>
 /// <param name="체력, 공격력, 방어력, 실드, 스피드 , 스피드 소모량"></param>
 /// <returns></returns>
-map<E_OBJECTINFO, int> GetDefaultValue(int length,...) 
-{
-	map<E_OBJECTINFO, int> returnValueData;
-	va_list argulists;
-	va_start(argulists, length);
-	for (int i = 0; i < E_OBJECTINFO::END; i++) {
-		
-		if (i >= length) {
-			returnValueData.insert(i, 1);
-			continue;
-		}
-
-		int infoValue = va_arg(argulists, int);
-		returnValueData.insert(i, infoValue);
-	}
-	va_end(argulists);
-
-	return returnValueData;
-};
+extern map<E_OBJECTINFO, int> GetDefaultValue(int length, ...);
+extern const std::map<E_OBJECTINFO, string> INFOTYPE_TOSTRING;

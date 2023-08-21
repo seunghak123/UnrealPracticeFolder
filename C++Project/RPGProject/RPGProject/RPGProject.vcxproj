@@ -133,7 +133,9 @@
     <ClCompile Include="Managers.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectActionFactory.cpp" />
+    <ClCompile Include="SystemInfo.cpp" />
     <ClCompile Include="TestRenderingManager.cpp" />
+    <ClCompile Include="UserDataManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileUtils.h" />
@@ -144,6 +146,7 @@
     <ClInclude Include="ObjectActionFactory.h" />
     <ClInclude Include="ObjectInfo.h" />
     <ClInclude Include="SystemInfo.h" />
+    <ClInclude Include="UserData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

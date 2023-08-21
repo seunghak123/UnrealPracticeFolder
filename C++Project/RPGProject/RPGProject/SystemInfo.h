@@ -1,5 +1,6 @@
 #pragma once
 #pragma region EnumProperties
+#include <map>
 //캐릭터 등급표
 enum E_RARITY
 {
@@ -22,7 +23,7 @@ enum E_OBJECTINFO
 	CUNSUME_SPEED,
 	//버프 및 디버프 스탯
 	ATTACK_HP_DRAIN,
-	END,
+	INFO_END,
 };
 //캐릭터 행동 종류
 enum E_OBJECT_ACTION_TYPE
@@ -54,7 +55,7 @@ enum E_INGAME_TEAM_TYPE
 	//인던용 팀
 	USER_TEAM,
 	MONSTER_TEAM, 
-	END
+	TEAM_TYPE_END,
 };
 enum E_INGAME_TYPE
 {
@@ -66,14 +67,16 @@ enum E_WEALTH_TYPE
 	GOLD,
 };
 #pragma endregion EnumProperties
+namespace GlobalVariables 
+{
 #pragma region StaticProperties
-const int TEAM_NUMBER_COUNT = 3;
-const int TEAM_MIN_NUMBER_COUNT = 1;
+	extern const int TEAM_NUMBER_COUNT;
+	extern const int TEAM_MIN_NUMBER_COUNT;
 #pragma endregion StaticProperties
 
 
 #pragma region TestConstData
-const int userLvExp[20] = { 0,100,200,400,800,1600,3200,6400,12800,25600,
-							51200,102400,204800,409600,819200,
-							1638400,3276800,6553600,13172000,2000000000};
+	extern const int userLvExp[20];
+	extern const char* EMPTY_STRING ;
 #pragma endregion
+}

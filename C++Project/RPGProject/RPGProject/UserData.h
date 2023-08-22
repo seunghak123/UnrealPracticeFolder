@@ -64,4 +64,5 @@ private:
 	int userLv;
 	list<ObjectInfo> userCardDatas;
 	list<string> currentDeck;
+	int currentUserStory = 0;
 };

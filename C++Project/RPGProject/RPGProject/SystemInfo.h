@@ -72,6 +72,7 @@ enum E_RANDOM_UNIT_TYPE
 	WARRIOR,
 	ARCHER,
 	MAGICAN,
+	END_UNIT_TYPE
 };
 #pragma endregion EnumProperties
 namespace GlobalVariables 
@@ -86,6 +87,7 @@ namespace GlobalVariables
 #pragma region TestConstData
 	extern const int userLvExp[20];
 	extern const char* EMPTY_STRING ;
+	extern const int MAX_STORYMODE_LEVEL;
 #pragma endregion
 }
 char* GenerateUUID();

@@ -1,6 +1,6 @@
 #include "SystemInfo.h"
 #include <time.h>
-
+#include "Object.h"
 namespace GlobalVariables
 {
 #pragma region StaticProperties
@@ -16,6 +16,7 @@ namespace GlobalVariables
 								   51200,102400,204800,409600,819200,
 								   1638400,3276800,6553600,13172000,2000000000 };
 	const char* EMPTY_STRING = "Empty NickName";
+	const int MAX_STORYMODE_LEVEL = 10;
 #pragma endregion
 }
 int changeValue = 0;

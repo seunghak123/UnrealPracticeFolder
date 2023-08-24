@@ -18,5 +18,10 @@
     "index": 3,
     "unitName": "전사",
     "unitHp": 12
+  },
+  {
+    "index": 4,
+    "unitName": "토끼",
+    "unitHp": 1
   }
 ]

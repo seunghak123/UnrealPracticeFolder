@@ -47,29 +47,20 @@ namespace ExcelToJsonConverter
 
             string[] excelfileArrays = GetFileLists(inputPath);
             Console.WriteLine("엑셀  갯수" + excelfileArrays.Length);
+            List<Task> excelTask = new List<Task>();
             for(int i=0;i < excelfileArrays.Length; i++)
             {
-               // Task task1 = Task.Run(() =>
-               //{
-                   ReadExcelFile(excelfileArrays[i]); 
-                //});
+                int index = i;
+                excelTask.Add(Task.Run(() =>
+                {
+                   ReadExcelFile(excelfileArrays[index]); 
+                }));
             }
-            //특정 경로에서 엑셀리스트 받기
-            //해당 엑셀의 워크 시트를 딴 json파일 생성및 class파일 생성(cs파일) 
-
-            //List<Dictionary<string, object>> excelData = ReadExcelFile(excelfileArrays[0]);
-
-            //if (excelData != null)
-            //{
-            //    string jsonData = JsonConvert.SerializeObject(excelData, Formatting.Indented);
-            //    File.WriteAllText(jsonFilePath, jsonData);
-
-            //    Console.WriteLine("Excel data has been converted to JSON successfully.");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Failed to read Excel data.");
-            //}
+            
+            foreach(var autoTask in excelTask)
+            {
+                autoTask.Wait();
+            }
         }
 
         static void ReadExcelFile(string excelPath)
@@ -127,9 +118,9 @@ namespace ExcelToJsonConverter
                         string header = worksheet.Cells[1, col].Value?.ToString();
                         classResult.Add(header, worksheet.Cells[2, col].Value?.ToString());
                     }
-                    //result.Add(rowData);
 
                     MakeClassFile(worksheet.Name, classResult);
+                    MakeCPPClassFile(worksheet.Name, classResult);
                 }
                 //Make Class
             }
@@ -179,16 +170,16 @@ namespace ExcelToJsonConverter
                 outputScriptPath.Append('/');
             }
 
-            string makedFile = $"{outputScriptPath}{fileName}";
+            string makedFile = $"{outputScriptPath}/{fileName}.cpp";
             string className = UpperCaseFirstLetter(fileName);
             string insertText = "USTRUCT(BlueprintType)\n";
             insertText += $"struct F{className}Data\n" + '{';
-            insertText += "GENERATED_BODY()\n";
+            insertText += "\n\tGENERATED_BODY()\n";
             insertText += "public: ";
             for (int i = 0; i < fileValues.Count; i++)
             {
-                insertText += "\nUPROPERTY(EditAnwhere, BlueprintReadOnly, Category= FurnitureData)";
-                insertText += $"\n{fileValues.ElementAt(i).Value} {fileValues.ElementAt(i).Key}";
+                insertText += "\n\tUPROPERTY(EditAnwhere, BlueprintReadOnly, Category= FurnitureData)";
+                insertText += $"\n\t{fileValues.ElementAt(i).Value} {fileValues.ElementAt(i).Key};\n";
             }
             insertText += "\n}";
 
@@ -213,6 +204,7 @@ namespace ExcelToJsonConverter
             {
                 case "int":
                 case "integer":
+                case "Int":
                     //int값
                     returnType = typeof(int);
                     break;

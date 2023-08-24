@@ -15,6 +15,7 @@ namespace GlobalVariables
 	const int userLvExp[20] = { 0,100,200,400,800,1600,3200,6400,12800,25600,
 								   51200,102400,204800,409600,819200,
 								   1638400,3276800,6553600,13172000,2000000000 };
+	const int STORY_MONSTER_COUNT[10] = { 1,1,2,2,2,3,3,4,5,6 };
 	const char* EMPTY_STRING = "Empty NickName";
 	const int MAX_STORYMODE_LEVEL = 10;
 #pragma endregion

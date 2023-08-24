@@ -13,6 +13,12 @@ class UserData
 public:
 	int GetUserLv();
 	int GetUserNextLvEXP();
+	int GetUserStoryLevel() {
+		return currentUserStory;
+	}
+	void SetUserStoryLevel(int value) {
+		currentUserStory = value; 
+	}
 	list<ObjectInfo> GetUserCardDatas();
 	void AddUserCardDatas(GameActor& addCardInfo);
 	tuple<std::vector<GameActor>, int> GetUserCardLists();

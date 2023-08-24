@@ -18,6 +18,8 @@ namespace ExcelToJsonConverter
         //{
         //    //작업 수행
         //});
+        //Excel Input Path
+        string inputPath = "./ExcelFiles";
         //Json Output Path
         static string outputJsonPath = "./JsonFiles";
         //Cs 또는 Cpp Output Path
@@ -30,17 +32,16 @@ namespace ExcelToJsonConverter
             //Excel Input Path
             string inputPath = "./ExcelFiles";
             #endregion
-            //if (argus.Length <= 0)
-            //{
-            //    Console.WriteLine("Error Need Excel, Json folder Path");
-            //    return;
-            //}
-            ////Excel Input Path
-            //string inputPath = argus[0];
-            ////Json Output Path
-            //string outputJsonPath = argus[1];
-            ////Cs 또는 Cpp Output Path
-            //string outputScriptPath = argus[2];
+  
+            if(argus.Length > 0)
+            {
+                ////Excel Input Path
+                inputPath = argus[0];
+                ////Json Output Path
+                outputJsonPath = argus[1];
+                ////Cs 또는 Cpp Output Path
+                outputScriptPath = argus[2];
+            }
             Console.WriteLine($"엑셀 Input 경로 : {inputPath}");
             //Console.WriteLine($"Json Output 경로 : {outputJsonPath}");
             //Console.WriteLine($"Class Output 경로 : {outputScriptPath}");
@@ -80,6 +81,10 @@ namespace ExcelToJsonConverter
                         {
                             //변수명
                             string header = worksheet.Cells[1, col].Value?.ToString();
+                            if (header==null || header.Contains("#"))
+                            {
+                                continue;
+                            }
                             object cellValue = worksheet.Cells[row, col].Value;
                             Type type = GetTypeFromString(worksheet.Cells[2, col].Value?.ToString());
 
@@ -116,6 +121,10 @@ namespace ExcelToJsonConverter
                     for (int col = 1; col <= worksheet.Dimension.Columns; col++)
                     {
                         string header = worksheet.Cells[1, col].Value?.ToString();
+                        if (header == null || header.Contains("#"))
+                        {
+                            continue;
+                        }
                         classResult.Add(header, worksheet.Cells[2, col].Value?.ToString());
                     }
 

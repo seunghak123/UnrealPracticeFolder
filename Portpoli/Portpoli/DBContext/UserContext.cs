@@ -2,9 +2,9 @@
 using Portpoli.Models;
 namespace Portpoli
 {
-    public class LoginDbContext : DbContext
+    public class UserDbContext : DbContext
     {
-        public LoginDbContext(DbContextOptions<LoginDbContext> options)
+        public UserDbContext(DbContextOptions<UserDbContext> options)
             : base(options)
         {
         }

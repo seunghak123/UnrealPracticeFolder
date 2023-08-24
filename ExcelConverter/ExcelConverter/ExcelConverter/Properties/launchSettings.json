@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ExcelConverter": {
+      "commandName": "Project",
+      "commandLineArgs": "\"./ExcelFiles\" \"./JsonFiles\" \"./Script\""
+    }
+  }
+}

@@ -40,7 +40,7 @@ namespace Portpoli
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Test", Version = "v1" });
             });
-            services.AddDbContext<LoginDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }     
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

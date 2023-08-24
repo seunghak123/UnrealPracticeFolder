@@ -8,7 +8,7 @@ using Portpoli;
 
 namespace Portpoli.Migrations
 {
-    [DbContext(typeof(LoginDbContext))]
+    [DbContext(typeof(UserDbContext))]
     [Migration("20230824032426_InitialCreate")]
     partial class InitialCreate
     {

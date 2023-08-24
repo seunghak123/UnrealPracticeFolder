@@ -85,9 +85,10 @@ namespace GlobalVariables
 
 
 #pragma region TestConstData
-	extern const int userLvExp[20];
+	extern const int USER_LEVEL_EXP[20];
 	extern const char* EMPTY_STRING ;
 	extern const int MAX_STORYMODE_LEVEL;
+	extern const int STORY_MONSTER_COUNT[10];
 #pragma endregion
 }
 char* GenerateUUID();

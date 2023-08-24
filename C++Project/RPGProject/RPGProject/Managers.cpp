@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <algorithm>
+#include "SystemInfo.h"
 
 using namespace TestTool;
 
@@ -46,8 +47,9 @@ list<GameActor*> DungeonTeamManager::CreateTeamMember(E_INGAME_TEAM_TYPE teamTyp
 		}
 		break;
 	case MONSTER_TEAM:
-		int teamNumberCount = 12;
-		for (int i = 0; i < teamNumberCount; i++) 
+		int monsterCount = GlobalVariables::STORY_MONSTER_COUNT[UserDataManager::getInstance().userData.GetUserStoryLevel()];
+		UserDataManager::getInstance().userData.GetUserStoryLevel();
+		for (int i = 0; i < 3; i++) 
 		{
 			DungeonMonsterGameActor* newMonsterGameActor = new DungeonMonsterGameActor();
 			newMonsterGameActor->spawnTurn = i / GlobalVariables::TEAM_NUMBER_COUNT + 1;

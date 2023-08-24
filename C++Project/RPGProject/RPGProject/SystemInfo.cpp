@@ -12,7 +12,7 @@ namespace GlobalVariables
 			{E_INGAME_TYPE::DUNGEON_MODE,"스토리 모드"},{E_INGAME_TYPE::PVP_MODE,"유저대전 모드"},
 	};
 #pragma region TestConstData
-	const int userLvExp[20] = { 0,100,200,400,800,1600,3200,6400,12800,25600,
+	const int USER_LEVEL_EXP[20] = { 0,100,200,400,800,1600,3200,6400,12800,25600,
 								   51200,102400,204800,409600,819200,
 								   1638400,3276800,6553600,13172000,2000000000 };
 	const int STORY_MONSTER_COUNT[10] = { 1,1,2,2,2,3,3,4,5,6 };

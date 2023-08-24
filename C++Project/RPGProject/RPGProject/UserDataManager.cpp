@@ -5,7 +5,7 @@ int UserData::GetUserLv()
 {
 	int userLv = 1;
 	for (int i = 0; i < 20; i++) {
-		if (this->userExp < GlobalVariables::userLvExp[i]) {
+		if (this->userExp < GlobalVariables::USER_LEVEL_EXP[i]) {
 			userLv = i + 1;
 			break;
 		}
@@ -17,8 +17,8 @@ int UserData::GetUserNextLvEXP()
 {
 	int remainExp = 0;
 	for (int i = 0; i < 20; i++) {
-		if (this->userExp < GlobalVariables::userLvExp[i]) {
-			remainExp = GlobalVariables::userLvExp[i] - this->userExp;
+		if (this->userExp < GlobalVariables::USER_LEVEL_EXP[i]) {
+			remainExp = GlobalVariables::USER_LEVEL_EXP[i] - this->userExp;
 			break;
 		}
 	}

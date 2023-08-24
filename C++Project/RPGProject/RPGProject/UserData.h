@@ -14,6 +14,9 @@ public:
 	int GetUserLv();
 	int GetUserNextLvEXP();
 	int GetUserStoryLevel() {
+		if (currentUserStory >= 10) {
+			return 9;
+		}
 		return currentUserStory;
 	}
 	void SetUserStoryLevel(int value) {

@@ -7,6 +7,7 @@
 #include <cstdarg>
 #include <string>
 #include <cmath>
+#include <ctime>
 using namespace std;
 
 class GameActor;
@@ -149,34 +150,4 @@ private :
 /// <returns></returns>
 extern map<E_OBJECTINFO, int> GetDefaultValue(int length, ...);
 extern const std::map<E_OBJECTINFO, string> INFOTYPE_TOSTRING;
-extern ObjectInfo GetRandomObjectInfo(int positionNumber,int unitLevel =0) 
-{
-	srand(clock() + positionNumber);
-	int randomUnitType = rand() % E_RANDOM_UNIT_TYPE::END_UNIT_TYPE;
-	//100%기준으로
-	int percentValue[E_RANDOM_UNIT_TYPE::END_UNIT_TYPE][6] = { {2,4,1,0,3,2},{5,2,3,0,2,3}, {3,10,1,4,2,4} };
-	ObjectInfo newInfoObjext = ObjectInfo();
-
-	switch (randomUnitType) {
-	case E_RANDOM_UNIT_TYPE::WARRIOR:
-		newInfoObjext.SetObjectName("전사");
-		break;
-	case E_RANDOM_UNIT_TYPE::ARCHER:
-		newInfoObjext.SetObjectName("궁수");
-		break;
-	case E_RANDOM_UNIT_TYPE::MAGICAN:
-		newInfoObjext.SetObjectName("마법사");
-		break;
-	}
-	float upgradeValue = pow(1.1, unitLevel);
-	
-	int hpValue = floor( percentValue[randomUnitType][0]* upgradeValue);
-	int attackValue = floor(percentValue[randomUnitType][1] * upgradeValue);
-	int defenceValue = floor(percentValue[randomUnitType][2] * upgradeValue);
-	int sheildValue = floor(percentValue[randomUnitType][3] * upgradeValue);
-	int speedValue = floor(percentValue[randomUnitType][4] * upgradeValue);
-	int consumeValue = floor(percentValue[randomUnitType][5] / upgradeValue);
-
-	newInfoObjext.UpdateBasicInfos(GetDefaultValue(6, hpValue, attackValue, defenceValue, sheildValue, speedValue, consumeValue));
-	return newInfoObjext;
-}
+extern ObjectInfo GetRandomObjectInfo(int positionNumber, int unitLevel = 0);

@@ -1033,11 +1033,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AssortRock\\source\\repos\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
+      "projectUniqueName": "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
       "projectName": "ExcelConverter",
-      "projectPath": "C:\\Users\\AssortRock\\source\\repos\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
+      "projectPath": "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
       "packagesPath": "C:\\Users\\AssortRock\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AssortRock\\source\\repos\\ExcelConverter\\ExcelConverter\\obj\\",
+      "outputPath": "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

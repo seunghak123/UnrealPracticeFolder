@@ -24,7 +24,7 @@ namespace ExcelToJsonConverter
         static string outputJsonPath = "./JsonFiles";
         //Cs 또는 Cpp Output Path
         static string outputScriptPath = "./Script";
-
+        static int isCsharpProject = 1;
         static void Main(string[] argus)
         {
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
@@ -41,6 +41,8 @@ namespace ExcelToJsonConverter
                 outputJsonPath = argus[1];
                 ////Cs 또는 Cpp Output Path
                 outputScriptPath = argus[2];
+                ///Cs인지 Cpp인지 선택하는 인자
+                isCsharpProject = int.Parse(argus[3]);
             }
             Console.WriteLine($"엑셀 Input 경로 : {inputPath}");
             //Console.WriteLine($"Json Output 경로 : {outputJsonPath}");
@@ -127,9 +129,14 @@ namespace ExcelToJsonConverter
                         }
                         classResult.Add(header, worksheet.Cells[2, col].Value?.ToString());
                     }
-
-                    MakeClassFile(worksheet.Name, classResult);
-                    MakeCPPClassFile(worksheet.Name, classResult);
+                    if (isCsharpProject == 1)
+                    {
+                        MakeClassFile(worksheet.Name, classResult);
+                    }
+                    else
+                    {
+                        MakeCPPClassFile(worksheet.Name, classResult);
+                    }
                 }
                 //Make Class
             }

@@ -3,7 +3,7 @@
 
 AfirstProjectGameModeBase::AfirstProjectGameModeBase()
 {
-	ConstructorHelpers::FClassFinder<APawn> finder(TEXT("/Script/Engine.Blueprint'/Game/Bundle/Character/BPC_Player.BPC_Player_C'"));
+	ConstructorHelpers::FClassFinder<APawn> finder(TEXT("/Script/Engine.Blueprint'/Game/Bundle/Character/BPC_Player.BPC_Player_c'"));
 	if (finder.Succeeded())
 	{
 		

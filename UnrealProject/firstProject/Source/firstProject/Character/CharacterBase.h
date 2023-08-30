@@ -26,7 +26,7 @@ public:
 	TSoftObjectPtr<UInputMappingContext> inputMapping;	
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-	TSoftObjectPtr<UInputAction> ratationAction;
+	TSoftObjectPtr<UInputAction> rotationAction;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TSoftObjectPtr<UInputAction> moveAction;
@@ -48,4 +48,5 @@ public:
 private :
 	void Move(const FInputActionInstance& _moveInstance);
 	void Rotation(const FInputActionInstance& _rotationInstance);
+	bool IsAllSetting();
 };

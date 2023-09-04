@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using OfficeOpenXml;
 using System.Threading.Tasks;
 using System.Reflection;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Text.Json.Nodes;
 
 namespace ExcelToJsonConverter
 {
@@ -68,6 +70,7 @@ namespace ExcelToJsonConverter
 
         static void ReadExcelFile(string excelPath)
         {
+            List<string> headerFileLists = new List<string>();
             using (var package = new ExcelPackage(new FileInfo(excelPath)))
             {
                 for(int i=0;i < package.Workbook.Worksheets.Count; i++)
@@ -135,6 +138,7 @@ namespace ExcelToJsonConverter
                     }
                     else
                     {
+                        headerFileLists.Add(worksheet.Name);
                         MakeCPPClassFile(worksheet.Name, classResult);
                     }
                 }
@@ -173,6 +177,31 @@ namespace ExcelToJsonConverter
             string jsonData = JsonConvert.SerializeObject(fileValues, Formatting.Indented);
             File.WriteAllText(makedFile, jsonData);
         }
+        static void MakeCppIncludeHeaderFile(List<string> headerLists)
+        {
+            string makedFile = $"{outputScriptPath}/Header/FBaseDataLists.h";
+            string insertText = "#pragma once\n";
+            insertText += $"\n#include \"FBaseData.h\"";
+            foreach (string headerFiles in headerLists)
+            {
+                insertText += $"\n#include \"F{headerFiles}Data.h\"";
+            }
+            //파일리스트 include된 내용 추가
+
+            File.WriteAllText(makedFile, insertText);
+        }
+        static void MakeDefaultCppClassFile()
+        {
+            string makedFile = $"{outputScriptPath}/Class/FBaseData.h";
+            string insertText = "#pragma once\nUCLASS()\n";
+            insertText += "template <typename T>";
+            insertText += $"struct FBaseData  \n" + '{';
+            insertText += "\n\tGENERATED_BODY()\n";
+            insertText += "public: ";
+            insertText += "\n\t virtual T ReadJsonData()";
+            insertText += "\n\t virtual TArray<T> ReadJsonDatas()";
+            insertText += "\n}";
+        }
         //C++ SerealizeField Class 
         static void MakeCPPClassFile(string fileName, Dictionary<string, string> fileValues)
         {
@@ -180,26 +209,80 @@ namespace ExcelToJsonConverter
             {
                 Directory.CreateDirectory(outputScriptPath);
             }
+            MakeDefaultCppClassFile();
 
+            //Cpp 파일 생성
             if (outputScriptPath.Last() != '/' || outputScriptPath.Last() != '\\')
             {
                 outputScriptPath.Append('/');
             }
 
-            string makedFile = $"{outputScriptPath}/{fileName}.cpp";
-            string className = UpperCaseFirstLetter(fileName);
-            string insertText = "USTRUCT(BlueprintType)\n";
-            insertText += $"struct F{className}Data\n" + '{';
-            insertText += "\n\tGENERATED_BODY()\n";
-            insertText += "public: ";
+            string makedFile = $"{outputScriptPath}/Class/F{fileName}.cpp";
+            //헤더파일 추가
+            string insertText = $"#include \"F{fileName}.h\"";
+            insertText += $"F{fileName} F{fileName}::ReadJsonDatas()\n" + '{';
+            insertText += $"F{fileName} returnValue = new F{fileName}()";
             for (int i = 0; i < fileValues.Count; i++)
             {
-                insertText += "\n\tUPROPERTY(EditAnwhere, BlueprintReadOnly, Category= FurnitureData)";
-                insertText += $"\n\t{fileValues.ElementAt(i).Value} {fileValues.ElementAt(i).Key};\n";
+                string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
+                if(ValueType == "FString")
+                {
+                    ValueType = "FString()";
+                } 
+                insertText += $"returnValue.{fileValues.ElementAt(i).Key} = ReadJsonValue(JsonObject, TEXT(\"{fileValues.ElementAt(i).Key}\"),{ValueType})";
             }
+
             insertText += "\n}";
 
+
+            //밑의 주석들은 혹시 몰라 남겨놓은 코드 
+            //string className = UpperCaseFirstLetter(fileName);
+            //string insertText = "USTRUCT(BlueprintType)\n";
+            //insertText += $"struct F{className}Data\n" + '{';
+            //insertText += "\n\tGENERATED_BODY()\n";
+            //insertText += "public: ";
+            //for (int i = 0; i < fileValues.Count; i++)
+            //{
+            //    string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
+            //    insertText += "\n\tUPROPERTY(EditAnwhere, BlueprintReadOnly, Category= FurnitureData)";
+            //    insertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
+            //}
+            //insertText += "\n}";
+
             File.WriteAllText(makedFile, insertText);
+
+            //header 파일 생성
+
+            string makedHeaderFile = $"{outputScriptPath}/Header/F{fileName}.h";
+            string headerInsertText = "#pragma once\nUCLASS()\n";
+            headerInsertText += $"class  F{fileName}Data : public FBaseData \n" + '{';
+            headerInsertText += "\n\tGENERATED_BODY()\n";
+            headerInsertText += "public: ";
+            for (int i = 0; i < fileValues.Count; i++)
+            {
+                string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
+                headerInsertText += "\n\tUPROPERTY(EditAnwhere, BlueprintReadOnly, Category= FurnitureData)";
+                //여기에 Fstring 일경우에 Value 값을 Fstring으로 나와야한다.
+                headerInsertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
+            }
+            headerInsertText += "\n}";
+
+
+        }
+        public static string ReturnSaveTextType(string typeString)
+        {
+            //해당 함수는 C++ 즉 언리얼일때만 실행한다.
+            string returnTypeString = null;
+            switch (typeString)
+            {
+                case "string":
+                    returnTypeString = "FString";
+                    break;
+                default:
+                    returnTypeString = typeString;
+                    break;
+            }
+            return returnTypeString;
         }
         public static string UpperCaseFirstLetter(string input)
         {

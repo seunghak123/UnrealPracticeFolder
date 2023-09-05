@@ -1,0 +1,6 @@
+UnrealProject filter=lfs diff=lfs merge=lfs -text
+C++Project filter=lfs diff=lfs merge=lfs -text
+ExcelConverter filter=lfs diff=lfs merge=lfs -text
+JsonConverter.bat filter=lfs diff=lfs merge=lfs -text
+Portpoli filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text

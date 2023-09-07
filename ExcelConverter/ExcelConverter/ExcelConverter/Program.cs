@@ -6,8 +6,7 @@ using Newtonsoft.Json;
 using OfficeOpenXml;
 using System.Threading.Tasks;
 using System.Reflection;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Text.Json.Nodes;
+using System.Reflection.PortableExecutable;
 
 namespace ExcelToJsonConverter
 {
@@ -139,10 +138,14 @@ namespace ExcelToJsonConverter
                     else
                     {
                         headerFileLists.Add(worksheet.Name);
-                        MakeCPPClassFile(worksheet.Name, classResult);
+                        //MakeSocketCPPClassFile(worksheet.Name, classResult);
                     }
                 }
                 //Make Class
+            }
+            if (isCsharpProject == 0)
+            {
+                MakeCppIncludeHeaderFile(headerFileLists);
             }
         }
         //C# SerealizeField Class 
@@ -171,20 +174,29 @@ namespace ExcelToJsonConverter
                 Directory.CreateDirectory(outputJsonPath);
             }
 
-            string className = UpperCaseFirstLetter(fileName);
-            string makedFile = $"{outputJsonPath}/J{className}.json";
+            string className = UpperCaseFirstLetter(fileName).ToLower();
+            string makedFile = $"{outputJsonPath}/j{className}.json";
 
             string jsonData = JsonConvert.SerializeObject(fileValues, Formatting.Indented);
+
             File.WriteAllText(makedFile, jsonData);
         }
         static void MakeCppIncludeHeaderFile(List<string> headerLists)
         {
+            string makedFilePath = $"{outputScriptPath}/Header";
+
+            if (Directory.Exists(makedFilePath) == false)
+            {
+                Directory.CreateDirectory(makedFilePath);
+            }
+
             string makedFile = $"{outputScriptPath}/Header/FBaseDataLists.h";
+
             string insertText = "#pragma once\n";
             insertText += $"\n#include \"FBaseData.h\"";
             foreach (string headerFiles in headerLists)
             {
-                insertText += $"\n#include \"F{headerFiles}Data.h\"";
+                insertText += $"\n#include \"U{headerFiles}Data.h\"";
             }
             //파일리스트 include된 내용 추가
 
@@ -192,36 +204,51 @@ namespace ExcelToJsonConverter
         }
         static void MakeDefaultCppClassFile()
         {
-            string makedFile = $"{outputScriptPath}/Class/FBaseData.h";
-            string insertText = "#pragma once\nUCLASS()\n";
-            insertText += "template <typename T>";
-            insertText += $"struct FBaseData  \n" + '{';
+            string makedFilePath = $"{outputScriptPath}/Header";
+
+            if (Directory.Exists(makedFilePath) == false)
+            {
+                Directory.CreateDirectory(makedFilePath);
+            }
+
+            string makedFile = $"{outputScriptPath}/Header/FBaseData.h";
+            string insertText = "#pragma once\n";
+            insertText += "#include \"EngineMinimal.h\"\n";
+            insertText += "#include \"CoreMinimal.h\"\n";
+            insertText += "#include \"FBaseData.generated.h\"\n";
+            insertText += "UCLASS()\n";
+  
+            insertText += $"class FBaseData : public UObject \n" + '{';
             insertText += "\n\tGENERATED_BODY()\n";
             insertText += "public: ";
-            insertText += "\n\t virtual T ReadJsonData()";
-            insertText += "\n\t virtual TArray<T> ReadJsonDatas()";
-            insertText += "\n}";
+            insertText += "\n\ttemplate <typename T>";
+            insertText += "\n\tstatic T ReadJsonData();";
+            insertText += "\n\ttemplate <typename T>";
+            insertText += "\n\tstatic TArray<T> ReadJsonDatas();";
+            insertText += "\n};";
+            File.WriteAllText(makedFile, insertText);
         }
         //C++ SerealizeField Class 
-        static void MakeCPPClassFile(string fileName, Dictionary<string, string> fileValues)
+        static void MakeSocketCPPClassFile(string fileName, Dictionary<string, string> fileValues)
         {
             if (Directory.Exists(outputScriptPath) == false)
             {
                 Directory.CreateDirectory(outputScriptPath);
             }
             MakeDefaultCppClassFile();
-
             //Cpp 파일 생성
             if (outputScriptPath.Last() != '/' || outputScriptPath.Last() != '\\')
             {
                 outputScriptPath.Append('/');
             }
 
-            string makedFile = $"{outputScriptPath}/Class/F{fileName}.cpp";
-            //헤더파일 추가
-            string insertText = $"#include \"F{fileName}.h\"";
-            insertText += $"F{fileName} F{fileName}::ReadJsonDatas()\n" + '{';
-            insertText += $"F{fileName} returnValue = new F{fileName}()";
+            string makedFile = $"{outputScriptPath}/Class/F{fileName}Data.cpp";
+            string insertText = $"#include \"F{fileName}Data.h\"\n\n";
+
+
+            insertText += $"F{fileName}Data F{fileName}Data::ReadJsonData()\n" + '{' + '\n';
+            insertText += $"\tTArray<TSharedPtr<FJsonValue>> objArray = JsonObject->GetArrayField(TEXT(\"F{fileName}Data\"));\n";
+            insertText += $"\tF{fileName}Data returnValue = new F{fileName}Data();\n";
             for (int i = 0; i < fileValues.Count; i++)
             {
                 string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
@@ -229,9 +256,16 @@ namespace ExcelToJsonConverter
                 {
                     ValueType = "FString()";
                 } 
-                insertText += $"returnValue.{fileValues.ElementAt(i).Key} = ReadJsonValue(JsonObject, TEXT(\"{fileValues.ElementAt(i).Key}\"),{ValueType})";
+                insertText += $"\treturnValue.{fileValues.ElementAt(i).Key} = ReadJsonValue(JsonObject, TEXT(\"{fileValues.ElementAt(i).Key}\"),{ValueType});\n";
             }
+            insertText += "\n}";
 
+            insertText += $"\nTArray<F{fileName}Data> F{fileName}Data::ReadJsonDatas()\n" + '{' + '\n';
+            insertText += $"\tTArray<F{fileName}Data> returnValues = new TArray<F{fileName}Data>();\n";
+            for (int i = 0; i < fileValues.Count; i++)
+            {
+
+            }
             insertText += "\n}";
 
 
@@ -244,7 +278,7 @@ namespace ExcelToJsonConverter
             //for (int i = 0; i < fileValues.Count; i++)
             //{
             //    string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
-            //    insertText += "\n\tUPROPERTY(EditAnwhere, BlueprintReadOnly, Category= FurnitureData)";
+            //    insertText += "\n\tUPROPERTY(EditAnywhere, BlueprintReadOnly, Category= FurnitureData)";
             //    insertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
             //}
             //insertText += "\n}";
@@ -252,22 +286,31 @@ namespace ExcelToJsonConverter
             File.WriteAllText(makedFile, insertText);
 
             //header 파일 생성
-
-            string makedHeaderFile = $"{outputScriptPath}/Header/F{fileName}.h";
-            string headerInsertText = "#pragma once\nUCLASS()\n";
-            headerInsertText += $"class  F{fileName}Data : public FBaseData \n" + '{';
+            string heaperPath = $"{outputScriptPath}/Header";
+            if (Directory.Exists(heaperPath) == false)
+            {
+                Directory.CreateDirectory(heaperPath);
+              }
+            string makedHeaderFile = $"{outputScriptPath}/Header/F{fileName}Data.h";
+            string headerInsertText = "#pragma once\nUSTRUCT()\n";
+            headerInsertText += $"#include \"FBaseData.h\"\n";
+            headerInsertText += $"#include \"F{fileName}Data.generated.h\"\n";
+            headerInsertText += $"struct  F{fileName}Data : public FBaseData \n" + '{';
             headerInsertText += "\n\tGENERATED_BODY()\n";
             headerInsertText += "public: ";
             for (int i = 0; i < fileValues.Count; i++)
             {
                 string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
-                headerInsertText += "\n\tUPROPERTY(EditAnwhere, BlueprintReadOnly, Category= FurnitureData)";
+                headerInsertText += "\n\tUPROPERTY(EditAnywhere, BlueprintReadOnly, Category= FurnitureData)";
                 //여기에 Fstring 일경우에 Value 값을 Fstring으로 나와야한다.
                 headerInsertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
             }
-            headerInsertText += "\n}";
+            headerInsertText += "public: \n";
+            headerInsertText += $"\tF{fileName}Data ReadJsonData();\n";
+            headerInsertText += $"\tTArray<F{fileName}Data> ReadJsonDatas();\n";
+            headerInsertText += "\n};";
 
-
+            File.WriteAllText(makedHeaderFile, headerInsertText);
         }
         public static string ReturnSaveTextType(string typeString)
         {
@@ -321,6 +364,19 @@ namespace ExcelToJsonConverter
                     break;
                 case "string":
                     returnType = typeof(string);
+                    break;
+                case "int[]":
+                    returnType = typeof(int[]);
+                    break;
+                case "string[]":
+                    returnType = typeof(string[]);
+                    break;
+                case "float[]":
+                case "double[]":
+                    returnType = typeof(float[]);
+                    break;
+                case "char[]":
+                    returnType = typeof(char[]);
                     break;
             }
             return returnType;

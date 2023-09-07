@@ -145,7 +145,7 @@ namespace ExcelToJsonConverter
             }
             if (isCsharpProject == 0)
             {
-                MakeCppIncludeHeaderFile(headerFileLists);
+                //MakeSocketCppIncludeHeaderFile(headerFileLists);
             }
         }
         //C# SerealizeField Class 
@@ -181,7 +181,8 @@ namespace ExcelToJsonConverter
 
             File.WriteAllText(makedFile, jsonData);
         }
-        static void MakeCppIncludeHeaderFile(List<string> headerLists)
+        #region 언리얼 소켓용 클래스 생성
+        static void MakeSocketCppIncludeHeaderFile(List<string> headerLists)
         {
             string makedFilePath = $"{outputScriptPath}/Header";
 
@@ -202,7 +203,7 @@ namespace ExcelToJsonConverter
 
             File.WriteAllText(makedFile, insertText);
         }
-        static void MakeDefaultCppClassFile()
+        static void MakeSocketDefaultCppClassFile()
         {
             string makedFilePath = $"{outputScriptPath}/Header";
 
@@ -235,7 +236,7 @@ namespace ExcelToJsonConverter
             {
                 Directory.CreateDirectory(outputScriptPath);
             }
-            MakeDefaultCppClassFile();
+            MakeSocketDefaultCppClassFile();
             //Cpp 파일 생성
             if (outputScriptPath.Last() != '/' || outputScriptPath.Last() != '\\')
             {
@@ -312,19 +313,128 @@ namespace ExcelToJsonConverter
 
             File.WriteAllText(makedHeaderFile, headerInsertText);
         }
+        #endregion
+        #region 언리얼 데이터 테이블 클래스 생성
+        static void MakeDataTableCppIncludeHeaderFile(List<string> headerLists)
+        {
+            string makedFilePath = $"{outputScriptPath}/Header";
+
+            if (Directory.Exists(makedFilePath) == false)
+            {
+                Directory.CreateDirectory(makedFilePath);
+            }
+
+            string makedFile = $"{outputScriptPath}/Header/FBaseDataLists.h";
+
+            string insertText = "#pragma once\n";
+            insertText += $"\n#include \"FBaseData.h\"";
+            foreach (string headerFiles in headerLists)
+            {
+                insertText += $"\n#include \"U{headerFiles}Data.h\"";
+            }
+            //파일리스트 include된 내용 추가
+
+            File.WriteAllText(makedFile, insertText);
+        }
+        static void MakeDataTableDefaultCppClassFile()
+        {
+            string makedFilePath = $"{outputScriptPath}/Header";
+
+            if (Directory.Exists(makedFilePath) == false)
+            {
+                Directory.CreateDirectory(makedFilePath);
+            }
+
+            string makedFile = $"{outputScriptPath}/Header/FBaseData.h";
+            string insertText = "#pragma once\n";
+            insertText += "#include \"EngineMinimal.h\"\n";
+            insertText += "#include \"CoreMinimal.h\"\n";
+            insertText += "#include \"Engine\\DataTable.h\"\n";
+            insertText += "#include \"FBaseData.generated.h\"\n";
+            insertText += "USTRUCT(BlueprintType)\n";
+
+            insertText += $"struct FBaseData : public FTableRowBase \n" + '{';
+            insertText += "\n\tGENERATED_USTRUCT_BODY()\n";
+            insertText += "public: ";
+            insertText += "\n\ttemplate <typename T>";
+            insertText += "\n\tstatic TArray<T> ReadJsonDatas();";
+            insertText += "\n};";
+            File.WriteAllText(makedFile, insertText);
+        }
+        static void MakeDataTableCPPClassFile(string fileName, Dictionary<string, string> fileValues)
+        {
+            if (Directory.Exists(outputScriptPath) == false)
+            {
+                Directory.CreateDirectory(outputScriptPath);
+            }
+            MakeSocketDefaultCppClassFile();
+            //Cpp 파일 생성
+            if (outputScriptPath.Last() != '/' || outputScriptPath.Last() != '\\')
+            {
+                outputScriptPath.Append('/');
+            }
+
+            string makedFile = $"{outputScriptPath}/Class/F{fileName}Data.cpp";
+            string insertText = $"#include \"F{fileName}Data.h\"\n\n";
+
+
+            insertText += $"\nTArray<F{fileName}Data> F{fileName}Data::ReadJsonDatas()\n" + '{' + '\n';
+            insertText += $"\tTArray<F{fileName}Data> returnValues = new TArray<F{fileName}Data>();\n";
+            for (int i = 0; i < fileValues.Count; i++)
+            {
+
+            }
+            insertText += "\n}";
+
+
+            File.WriteAllText(makedFile, insertText);
+
+            MakeDataTableCPPClassHeaderFile(fileName, fileValues);
+        }
+        static void MakeDataTableCPPClassHeaderFile(string fileName, Dictionary<string, string> fileValues)
+        {
+            //header 파일 생성
+            string heaperPath = $"{outputScriptPath}/Header";
+            if (Directory.Exists(heaperPath) == false)
+            {
+                Directory.CreateDirectory(heaperPath);
+            }
+            string makedHeaderFile = $"{outputScriptPath}/Header/F{fileName}Data.h";
+            string headerInsertText = "#pragma once\nUSTRUCT()\n";
+            headerInsertText += $"#include \"FBaseData.h\"\n";
+            headerInsertText += $"#include \"F{fileName}Data.generated.h\"\n";
+            headerInsertText += $"struct  F{fileName}Data : public FBaseData \n" + '{';
+            headerInsertText += "\n\tGENERATED_BODY()\n";
+            headerInsertText += "public: ";
+            for (int i = 0; i < fileValues.Count; i++)
+            {
+                string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
+                headerInsertText += $"\n\tUPROPERTY(EditAnywhere, BlueprintReadOnly, Category= \"{fileName}Data\")";
+                //여기에 Fstring 일경우에 Value 값을 Fstring으로 나와야한다.
+                headerInsertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
+            }
+            headerInsertText += "public: \n";
+            headerInsertText += $"\tTArray<F{fileName}Data> ReadJsonDatas();\n";
+            headerInsertText += "\n};";
+
+            File.WriteAllText(makedHeaderFile, headerInsertText);
+        }
+        #endregion
         public static string ReturnSaveTextType(string typeString)
         {
             //해당 함수는 C++ 즉 언리얼일때만 실행한다.
-            string returnTypeString = null;
-            switch (typeString)
+            string returnTypeString = typeString;
+            if (returnTypeString.Contains("string"))
             {
-                case "string":
-                    returnTypeString = "FString";
-                    break;
-                default:
-                    returnTypeString = typeString;
-                    break;
+                returnTypeString.Replace("string", "FString");
+                if (returnTypeString.Contains("[]"))
+                {
+                    returnTypeString.Replace("[]", "");
+                    returnTypeString = "TArray<" + returnTypeString + ">";
+                }
+
             }
+
             return returnTypeString;
         }
         public static string UpperCaseFirstLetter(string input)

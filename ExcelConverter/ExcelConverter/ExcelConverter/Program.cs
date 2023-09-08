@@ -7,6 +7,7 @@ using OfficeOpenXml;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.Reflection.PortableExecutable;
+using System.Data;
 
 namespace ExcelToJsonConverter
 {
@@ -138,14 +139,14 @@ namespace ExcelToJsonConverter
                     else
                     {
                         headerFileLists.Add(worksheet.Name);
-                        //MakeSocketCPPClassFile(worksheet.Name, classResult);
+                        MakeDataTableCPPClassFile(worksheet.Name, classResult);
                     }
                 }
                 //Make Class
             }
             if (isCsharpProject == 0)
             {
-                //MakeSocketCppIncludeHeaderFile(headerFileLists);
+                //MakeDataTableCppIncludeHeaderFile(headerFileLists);
             }
         }
         //C# SerealizeField Class 
@@ -350,24 +351,33 @@ namespace ExcelToJsonConverter
             insertText += "#include \"EngineMinimal.h\"\n";
             insertText += "#include \"CoreMinimal.h\"\n";
             insertText += "#include \"Engine\\DataTable.h\"\n";
-            insertText += "#include \"FBaseData.generated.h\"\n";
-            insertText += "USTRUCT(BlueprintType)\n";
-
+            insertText += "#include \"FBaseData.generated.h\"\n\n";
+            
+            insertText += "USTRUCT(BlueprintType)";
             insertText += $"struct FBaseData : public FTableRowBase \n" + '{';
-            insertText += "\n\tGENERATED_USTRUCT_BODY()\n";
+            insertText += "\n\tGENERATED_BODY()\n";
             insertText += "public: ";
             insertText += "\n\ttemplate <typename T>";
             insertText += "\n\tstatic TArray<T> ReadJsonDatas();";
             insertText += "\n};";
+            insertText += "\n\n";
+            insertText += "UCLASS()\n";
+            insertText += "class UBaseTable : public UDataTable\n" + '{';
+            insertText += "\n\tGENERATED_BODY()\n";
+            insertText += "}";
+
             File.WriteAllText(makedFile, insertText);
         }
         static void MakeDataTableCPPClassFile(string fileName, Dictionary<string, string> fileValues)
         {
-            if (Directory.Exists(outputScriptPath) == false)
+            string makedFilePath = $"{outputScriptPath}/Class";
+
+            if (Directory.Exists(makedFilePath) == false)
             {
-                Directory.CreateDirectory(outputScriptPath);
+                Directory.CreateDirectory(makedFilePath);
             }
-            MakeSocketDefaultCppClassFile();
+
+            MakeDataTableDefaultCppClassFile();
             //Cpp 파일 생성
             if (outputScriptPath.Last() != '/' || outputScriptPath.Last() != '\\')
             {
@@ -401,9 +411,11 @@ namespace ExcelToJsonConverter
             }
             string makedHeaderFile = $"{outputScriptPath}/Header/F{fileName}Data.h";
             string headerInsertText = "#pragma once\nUSTRUCT()\n";
+            headerInsertText += "#include \"CoreMinimal.h\"\n";
             headerInsertText += $"#include \"FBaseData.h\"\n";
             headerInsertText += $"#include \"F{fileName}Data.generated.h\"\n";
-            headerInsertText += $"struct  F{fileName}Data : public FBaseData \n" + '{';
+            headerInsertText += "USTRUCT(BlueprintType)\n";
+            headerInsertText += $"\nstruct  F{fileName}Data : public FBaseData \n" + '{';
             headerInsertText += "\n\tGENERATED_BODY()\n";
             headerInsertText += "public: ";
             for (int i = 0; i < fileValues.Count; i++)
@@ -414,7 +426,8 @@ namespace ExcelToJsonConverter
                 headerInsertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
             }
             headerInsertText += "public: \n";
-            headerInsertText += $"\tTArray<F{fileName}Data> ReadJsonDatas();\n";
+            headerInsertText += "\ttemplate <typename T>\r\n";
+            headerInsertText += $"\tTArray<F{fileName}Data> ReadJsonDatas() = 0;\n";
             headerInsertText += "\n};";
 
             File.WriteAllText(makedHeaderFile, headerInsertText);
@@ -426,13 +439,12 @@ namespace ExcelToJsonConverter
             string returnTypeString = typeString;
             if (returnTypeString.Contains("string"))
             {
-                returnTypeString.Replace("string", "FString");
-                if (returnTypeString.Contains("[]"))
-                {
-                    returnTypeString.Replace("[]", "");
-                    returnTypeString = "TArray<" + returnTypeString + ">";
-                }
-
+                returnTypeString = returnTypeString.Replace("string", "FString");
+            }
+            if (returnTypeString.Contains("[]"))
+            {
+                returnTypeString = returnTypeString.Replace("[]", "");
+                returnTypeString = "TArray<" + returnTypeString + ">";
             }
 
             return returnTypeString;

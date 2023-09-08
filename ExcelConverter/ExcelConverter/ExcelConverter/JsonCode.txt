@@ -41,3 +41,29 @@
     // UShopData 객체 배열 반환
     return ShopDataArray;
 }
+
+//언리얼에서 데이터 읽기
+메니저쪽에서 DataTable읽어서, 데이터 저장할것(key - value 형식으로)
+(key: 클래스)
+ADataTableTestGameModeBase::ADataTableTestGameModeBase()
+{
+    static ConstructorHelpers::FObjectFinder<UDataTable> DataTable(TEXT("/Game/LevelUpTable"));
+    if (DataTable.Succeeded())
+    {
+        LevelUpDataTable = DataTable.Object;
+    }
+}
+
+void ADataTableTestGameModeBase::BeginPlay()
+{
+    Super::BeginPlay();
+
+    if (LevelUpDataTable != nullptr)
+    {
+        for (int32 i = 1; i <= 10; i++)
+        {
+            FLevelUpTableRow* LevelUpTableRow = LevelUpDataTable->FindRow<FLevelUpTableRow>(FName(*(FString::FormatAsNumber(i))), FString(""));
+            UE_LOG(LogTemp, Log, TEXT("Lv.%d :: ExpToNextLevel(%d) TotalExp(%d)"), i, (*LevelUpTableRow).ExpToNextLevel, (*LevelUpTableRow).TotalExp);
+        }
+    }
+}

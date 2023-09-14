@@ -146,7 +146,7 @@ namespace ExcelToJsonConverter
             }
             if (isCsharpProject == 0)
             {
-                //MakeDataTableCppIncludeHeaderFile(headerFileLists);
+                MakeDataTableCppIncludeHeaderFile(headerFileLists);
             }
         }
         //C# SerealizeField Class 
@@ -337,7 +337,7 @@ namespace ExcelToJsonConverter
 
             File.WriteAllText(makedFile, insertText);
         }
-        static void MakeDataTableDefaultCppClassFile()
+        static void MakeDataTableDefaultCppHeaderFile()
         {
             string makedFilePath = $"{outputScriptPath}/Header";
 
@@ -353,12 +353,9 @@ namespace ExcelToJsonConverter
             insertText += "#include \"Engine\\DataTable.h\"\n";
             insertText += "#include \"FBaseData.generated.h\"\n\n";
             
-            insertText += "USTRUCT(BlueprintType)";
+            insertText += "USTRUCT(Atomic,BlueprintType)";
             insertText += $"struct FBaseData : public FTableRowBase \n" + '{';
             insertText += "\n\tGENERATED_BODY()\n";
-            insertText += "public: ";
-            insertText += "\n\ttemplate <typename T>";
-            insertText += "\n\tstatic TArray<T> ReadJsonDatas();";
             insertText += "\n};";
             insertText += "\n\n";
             insertText += "UCLASS()\n";
@@ -370,36 +367,9 @@ namespace ExcelToJsonConverter
         }
         static void MakeDataTableCPPClassFile(string fileName, Dictionary<string, string> fileValues)
         {
-            string makedFilePath = $"{outputScriptPath}/Class";
-
-            if (Directory.Exists(makedFilePath) == false)
-            {
-                Directory.CreateDirectory(makedFilePath);
-            }
-
-            MakeDataTableDefaultCppClassFile();
-            //Cpp 파일 생성
-            if (outputScriptPath.Last() != '/' || outputScriptPath.Last() != '\\')
-            {
-                outputScriptPath.Append('/');
-            }
-
-            string makedFile = $"{outputScriptPath}/Class/F{fileName}Data.cpp";
-            string insertText = $"#include \"F{fileName}Data.h\"\n\n";
-
-
-            insertText += $"\nTArray<F{fileName}Data> F{fileName}Data::ReadJsonDatas()\n" + '{' + '\n';
-            insertText += $"\tTArray<F{fileName}Data> returnValues = new TArray<F{fileName}Data>();\n";
-            for (int i = 0; i < fileValues.Count; i++)
-            {
-
-            }
-            insertText += "\n}";
-
-
-            File.WriteAllText(makedFile, insertText);
-
+            MakeDataTableDefaultCppHeaderFile();
             MakeDataTableCPPClassHeaderFile(fileName, fileValues);
+            MakeUnrealTableLoader();
         }
         static void MakeDataTableCPPClassHeaderFile(string fileName, Dictionary<string, string> fileValues)
         {
@@ -414,25 +384,57 @@ namespace ExcelToJsonConverter
             headerInsertText += "#include \"CoreMinimal.h\"\n";
             headerInsertText += $"#include \"FBaseData.h\"\n";
             headerInsertText += $"#include \"F{fileName}Data.generated.h\"\n";
-            headerInsertText += "USTRUCT(BlueprintType)\n";
+            headerInsertText += "USTRUCT(Atomic, BlueprintType)\n";
             headerInsertText += $"\nstruct  F{fileName}Data : public FBaseData \n" + '{';
             headerInsertText += "\n\tGENERATED_BODY()\n";
             headerInsertText += "public: ";
             for (int i = 0; i < fileValues.Count; i++)
             {
                 string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
-                headerInsertText += $"\n\tUPROPERTY(EditAnywhere, BlueprintReadOnly, Category= \"{fileName}Data\")";
+                headerInsertText += $"\n\tUPROPERTY(EditAnywhere, BlueprintReadWrite, Category= \"{fileName}Data\")";
                 //여기에 Fstring 일경우에 Value 값을 Fstring으로 나와야한다.
                 headerInsertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
             }
-            headerInsertText += "public: \n";
-            headerInsertText += "\ttemplate <typename T>\r\n";
-            headerInsertText += $"\tTArray<F{fileName}Data> ReadJsonDatas() = 0;\n";
             headerInsertText += "\n};";
 
             File.WriteAllText(makedHeaderFile, headerInsertText);
         }
+        static void MakeUnrealTableLoader()
+        {
+            string makedFilePath = $"{outputScriptPath}/Header";
+
+            if (Directory.Exists(makedFilePath) == false)
+            {
+                Directory.CreateDirectory(makedFilePath);
+            }
+            string makedFile = $"{outputScriptPath}/Header/JsonDataSubSystem.h";
+            string insertText = "#pragma once\n";
+            insertText += "#include \"CoreMinimal.h\"\n";
+            insertText += "#include \"Subsystems/GameInstanceSubsystem.h\"\n";
+            insertText += "#include \"JsonDataSubsystem.generated.h\"\n";
+            insertText += "\n\tUCLASS()\n";
+            insertText += "class UJsonDataSubsystem : public UGameInstanceSubsystem\n" + "{\n";
+            insertText += "\tGENERATED_BODY()\n";
+            insertText += "public:\n";
+            insertText += "\ttemplate <typename T>\n";
+            insertText += "\tstatic TArray<T*> LoadJsonData()\n" + "{\n";
+            insertText += "\t\t";
+
+            //UDataTable* DataTable = LoadObject<UDataTable>(nullptr, TEXT("/Script/Engine.DataTable'/Game/BlueprintClass/Monster/Table/DT_Monster.DT_Monster'"));
+            //if (IsValid(DataTable))
+            //{
+            //	const UEnum* MonEnum = FindObject<UEnum>(ANY_PACKAGE, TEXT("EMON_TYPE")); // EMON_TYPE 의 enum 정보를 가져온다.
+            //	// FString 으로 가져오기, Enum 풀네임으로 나옴
+            //	FString fString = MonEnum->GetNameStringByValue((int64)m_MonType);
+            //	// FName 으로 가져오기, Enum 타입 이름으로 나옴
+            //	FName name = MonEnum->GetNameByValue((int64)m_MonType);
+            //}
+
+            insertText += "\n}";
+            File.WriteAllText(makedFile, insertText);
+        }
         #endregion
+        #region CommonUtils
         public static string ReturnSaveTextType(string typeString)
         {
             //해당 함수는 C++ 즉 언리얼일때만 실행한다.
@@ -521,5 +523,6 @@ namespace ExcelToJsonConverter
             Console.WriteLine("Read All Excel Files");
             return files;
         }
+        #endregion CommonUtils
     }
 }

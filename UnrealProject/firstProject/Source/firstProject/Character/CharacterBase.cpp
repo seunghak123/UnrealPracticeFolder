@@ -4,6 +4,11 @@
 #include "CharacterBase.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "../Json//UBaseData.h"
+#include "../MyDataTable.h"
+#include "../Manager/JsonDataSubsystem.h"
+#include "UObject/ConstructorHelpers.h"
+#include "../Json/UShopData.h"
 // Sets default values
 ACharacterBase::ACharacterBase() : cameraCompo(nullptr) , springCompo(nullptr)
 {
@@ -13,9 +18,16 @@ ACharacterBase::ACharacterBase() : cameraCompo(nullptr) , springCompo(nullptr)
 	springCompo = CreateDefaultSubobject<USpringArmComponent>(TEXT("UserArms"));
 	springCompo->SetupAttachment(GetCapsuleComponent());
 	cameraCompo->SetupAttachment(springCompo);
-	//InputSystem
-	//메쉬가 1개?
 
+	TArray<FUShopData*> arrayDatas = UJsonDataSubsystem::LoadJsonData<FUShopData>();
+	static ConstructorHelpers::FObjectFinder<UMyDataTable> DataTable(TEXT("/Script/Engine.DataTable'/Game/Bundle/Json/JShop.JShop'"));
+
+
+	if (DataTable.Succeeded())
+	{
+		UMyDataTable* dataTable = DataTable.Object;
+
+	}
 }
 
 // Called when the game starts or when spawned

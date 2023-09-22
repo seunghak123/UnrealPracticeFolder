@@ -443,9 +443,16 @@ namespace ExcelToJsonConverter
             insertText += "#include \"CoreMinimal.h\"\n";
             insertText += "#include \"Subsystems/GameInstanceSubsystem.h\"\n";
             insertText += "#include \"JsonDataSubsystem.generated.h\"\n";
+            insertText += "#include \"JsonDataSubsystem.generated.h\"\n";
             insertText += "\nUCLASS()\n";
             insertText += "class UJsonDataSubsystem : public UGameInstanceSubsystem\n" + "{\n";
             insertText += "\tGENERATED_BODY()\n";
+            insertText += "public:\n";
+            insertText += "\tstatic UJsonDataSubsystem* jsonDataSubSystem;\n";
+            insertText += "public:\n";
+            insertText += "\tvoid Initialize(FSubSystemCollectionBase& Collection) override;\n";
+            insertText += "\tvoid Deinitialize() override\n";
+            insertText += "\tstatic UJsonDataSubSystem* GetInst();\n";
             insertText += "public:\n";
             insertText += "\ttemplate <typename T>\n";
             insertText += "\tstatic TArray<T*> LoadJsonData(FString filePath)\n" + "\t{\n";
@@ -459,6 +466,22 @@ namespace ExcelToJsonConverter
             insertText += "\n\t}";
             insertText += "\n};";
             File.WriteAllText(makedFile, insertText);
+
+            string makedcppFile = $"{outputScriptPath}/Header/JsonDataSubSystem.cpp";
+            string insertcppText = "#include \"JsonDataSubsystem.h\"\n\n";
+            insertcppText += "UJsonDataSubsystem* UJsonDataSubsystem::jsonDataSubSystem = nullptr;\n\n";
+            insertcppText += "void UJsonDataSubsystem::Initialize(FSubsystemCollectionBase& Collection)\n";
+            insertcppText += "{\n\tSuper::Initialize(Collection);\n";
+            insertcppText += "\tjsonDataSubSystem = this;\n}\n";
+            insertcppText += "void UJsonDataSubsystem::Deinitialize()\n{\n";
+            insertcppText += "\tSuper::Deinitialize();\n";
+            insertcppText += "\tjsonDataSubSystem = nullptr;\n}\n";
+            insertcppText += "UJsonDataSubsystem* UJsonDataSubsystem::GetInst()\n";
+            insertcppText += "{\r\n\tif (IsValid(jsonDataSubSystem))\n";
+            insertcppText += "\t{\n\t\t return jsonDataSubSystem;\n\t}\n";
+            insertcppText += "\treturn nullptr;\n}\n";
+
+            File.WriteAllText(makedcppFile, insertcppText);
         }
         #endregion
         #region CommonUtils

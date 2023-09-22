@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Reflection.PortableExecutable;
 using System.Data;
+using Newtonsoft.Json.Linq;
 
 namespace ExcelToJsonConverter
 {
@@ -81,6 +82,7 @@ namespace ExcelToJsonConverter
                     for (int row = 3; row <= worksheet.Dimension.Rows; row++)
                     { // Assuming header is in the first row
                         Dictionary<string, object> rowData = new Dictionary<string, object>();
+                       
 
                         for (int col = 1; col <= worksheet.Dimension.Columns; col++)
                         {
@@ -89,6 +91,10 @@ namespace ExcelToJsonConverter
                             if (header==null || header.Contains("#"))
                             {
                                 continue;
+                            }
+                            if (isCsharpProject == 0 && header == "index")
+                            {
+                                header = "Name";
                             }
                             object cellValue = worksheet.Cells[row, col].Value;
                             Type type = GetTypeFromString(worksheet.Cells[2, col].Value?.ToString());
@@ -114,8 +120,21 @@ namespace ExcelToJsonConverter
                                 case Type stringType when stringType == typeof(DateTime):
                                     rowData[header] = cellValue;
                                     break;
+
                                 default:
                                     rowData[header] = cellValue;
+                                    if (isCsharpProject == 0)
+                                    {
+                                        switch (type)
+                                        {
+                                            case Type intarrayType when intarrayType == typeof(int[]):
+                                            case Type douarrayType when douarrayType == typeof(double[]):
+                                            case Type floarrayType when floarrayType == typeof(float[]):
+                                            case Type strarrayType when strarrayType == typeof(string[]):
+                                                rowData[header] = JArray.Parse($"[{cellValue.ToString()}]");
+                                                break;
+                                        }
+                                    }
                                     break;
                             }
                         }
@@ -148,6 +167,14 @@ namespace ExcelToJsonConverter
             {
                 MakeDataTableCppIncludeHeaderFile(headerFileLists);
             }
+        }
+        public static string ReplaceFirst(string s, char re, char ch,int index)
+        {
+            int offsetIndex = index;
+            string first = s.Substring(0, s.IndexOf(re));
+            char midle = ch;
+            string last = s.Substring(s.IndexOf(re) + re, s.Length - offsetIndex);
+            return string.Concat(first, midle, last);
         }
         //C# SerealizeField Class 
         static void MakeClassFile(string fileName, Dictionary<string, string> fileValues)
@@ -353,15 +380,15 @@ namespace ExcelToJsonConverter
             insertText += "#include \"Engine\\DataTable.h\"\n";
             insertText += "#include \"FBaseData.generated.h\"\n\n";
             
-            insertText += "USTRUCT(Atomic,BlueprintType)";
+            insertText += "USTRUCT(Atomic,BlueprintType)\n";
             insertText += $"struct FBaseData : public FTableRowBase \n" + '{';
             insertText += "\n\tGENERATED_BODY()\n";
             insertText += "\n};";
-            insertText += "\n\n";
-            insertText += "UCLASS()\n";
-            insertText += "class UBaseTable : public UDataTable\n" + '{';
-            insertText += "\n\tGENERATED_BODY()\n";
-            insertText += "}";
+            //insertText += "\n\n";
+            //insertText += "UCLASS()\n";
+            //insertText += "class UBaseTable : public UDataTable\n" + '{';
+            //insertText += "\n\tGENERATED_BODY()\n";
+            //insertText += "}";
 
             File.WriteAllText(makedFile, insertText);
         }
@@ -380,7 +407,7 @@ namespace ExcelToJsonConverter
                 Directory.CreateDirectory(heaperPath);
             }
             string makedHeaderFile = $"{outputScriptPath}/Header/F{fileName}Data.h";
-            string headerInsertText = "#pragma once\nUSTRUCT()\n";
+            string headerInsertText = "#pragma once\n";
             headerInsertText += "#include \"CoreMinimal.h\"\n";
             headerInsertText += $"#include \"FBaseData.h\"\n";
             headerInsertText += $"#include \"F{fileName}Data.generated.h\"\n";
@@ -391,6 +418,10 @@ namespace ExcelToJsonConverter
             for (int i = 0; i < fileValues.Count; i++)
             {
                 string ValueType = ReturnSaveTextType(fileValues.ElementAt(i).Value);
+                if(fileValues.ElementAt(i).Key == "index")
+                {
+                    continue;
+                }
                 headerInsertText += $"\n\tUPROPERTY(EditAnywhere, BlueprintReadWrite, Category= \"{fileName}Data\")";
                 //여기에 Fstring 일경우에 Value 값을 Fstring으로 나와야한다.
                 headerInsertText += $"\n\t{ValueType} {fileValues.ElementAt(i).Key};\n";
@@ -412,25 +443,21 @@ namespace ExcelToJsonConverter
             insertText += "#include \"CoreMinimal.h\"\n";
             insertText += "#include \"Subsystems/GameInstanceSubsystem.h\"\n";
             insertText += "#include \"JsonDataSubsystem.generated.h\"\n";
-            insertText += "\n\tUCLASS()\n";
+            insertText += "\nUCLASS()\n";
             insertText += "class UJsonDataSubsystem : public UGameInstanceSubsystem\n" + "{\n";
             insertText += "\tGENERATED_BODY()\n";
             insertText += "public:\n";
             insertText += "\ttemplate <typename T>\n";
-            insertText += "\tstatic TArray<T*> LoadJsonData()\n" + "{\n";
-            insertText += "\t\t";
-
-            //UDataTable* DataTable = LoadObject<UDataTable>(nullptr, TEXT("/Script/Engine.DataTable'/Game/BlueprintClass/Monster/Table/DT_Monster.DT_Monster'"));
-            //if (IsValid(DataTable))
-            //{
-            //	const UEnum* MonEnum = FindObject<UEnum>(ANY_PACKAGE, TEXT("EMON_TYPE")); // EMON_TYPE 의 enum 정보를 가져온다.
-            //	// FString 으로 가져오기, Enum 풀네임으로 나옴
-            //	FString fString = MonEnum->GetNameStringByValue((int64)m_MonType);
-            //	// FName 으로 가져오기, Enum 타입 이름으로 나옴
-            //	FName name = MonEnum->GetNameByValue((int64)m_MonType);
-            //}
-
-            insertText += "\n}";
+            insertText += "\tstatic TArray<T*> LoadJsonData(FString filePath)\n" + "\t{\n";
+            insertText += "\t\tTArray<T*> dataArrays = nullptr;\n";
+            insertText += "\t\tUDataTable* userDataTable = LoadObject<UDataTable>(nullptr,*filePath);\n";
+            insertText += "\t\tif(IsValid(userDataTable))\n";
+            insertText += "\t\t{\n";
+            insertText += "\t\t\tuserDataTable->GetAllRows<T>(nullptr,dataArrays);\n";
+            insertText += "\t\t}\n";
+            insertText += "\n\t\treturn dataArrays;";
+            insertText += "\n\t}";
+            insertText += "\n};";
             File.WriteAllText(makedFile, insertText);
         }
         #endregion

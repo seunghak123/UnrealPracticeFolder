@@ -135,6 +135,49 @@ namespace ExcelToJsonConverter
                                                 break;
                                         }
                                     }
+                                    else
+                                    {
+                                        string[] typeString = cellValue.ToString().Split(',');
+                                        switch (type)
+                                        {
+                                            case Type intArray when intArray == typeof(int[]):
+                                                int[] intArrays = new int[typeString.Length];
+                                                for (int j = 0; j < typeString.Length; j++)
+                                                {
+                                                    if (int.TryParse(typeString[j], out int myresult))
+                                                    {
+                                                        intArrays[j] = myresult;
+                                                    }
+                                                }
+                                                rowData[header] = intArrays;
+                                                break;
+                                            case Type floatArray when floatArray == typeof(float[]):
+                                                float[] floatArrays = new float[typeString.Length];
+                                                for (int j = 0; j < typeString.Length; j++)
+                                                {
+                                                    if (float.TryParse(typeString[j], out float myresult))
+                                                    {
+                                                        floatArrays[j] = myresult;
+                                                    }
+                                                }
+                                                rowData[header] = floatArrays;
+                                                break;
+                                            case Type doubleArray when doubleArray == typeof(double[]):
+                                                double[] doubleArrays = new double[typeString.Length];
+                                                for (int j = 0; j < typeString.Length; j++)
+                                                {
+                                                    if (double.TryParse(typeString[j], out double myresult))
+                                                    {
+                                                        doubleArrays[j] = myresult;
+                                                    }
+                                                }
+                                                rowData[header] = doubleArrays;
+                                                break;
+                                            default:
+                                                rowData[header] = typeString;
+                                                break;
+                                        }
+                                    }
                                     break;
                             }
                         }

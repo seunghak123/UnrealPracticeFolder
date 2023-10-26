@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj": {}
+    "C:\\Users\\dhtmd\\Desktop\\assortrack\\UnrealPracticeFolder\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj": {
+    "C:\\Users\\dhtmd\\Desktop\\assortrack\\UnrealPracticeFolder\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
+        "projectUniqueName": "C:\\Users\\dhtmd\\Desktop\\assortrack\\UnrealPracticeFolder\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
         "projectName": "ExcelConverter",
-        "projectPath": "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
-        "packagesPath": "C:\\Users\\AssortRock\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AssortRock\\Desktop\\Seunghak\\ExcelConverter\\ExcelConverter\\ExcelConverter\\obj\\",
+        "projectPath": "C:\\Users\\dhtmd\\Desktop\\assortrack\\UnrealPracticeFolder\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
+        "packagesPath": "C:\\Users\\dhtmd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dhtmd\\Desktop\\assortrack\\UnrealPracticeFolder\\ExcelConverter\\ExcelConverter\\ExcelConverter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\AssortRock\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dhtmd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -51,6 +51,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "OfficeOpenXml.Core.ExcelPackage": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             }
           },
           "imports": [
@@ -59,8 +63,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -69,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
         }
       }
     }

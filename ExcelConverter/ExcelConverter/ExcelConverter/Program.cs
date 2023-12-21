@@ -27,6 +27,7 @@ namespace ExcelToJsonConverter
         static string outputJsonPath = "./JsonFiles";
         //Cs 또는 Cpp Output Path
         static string outputScriptPath = "./Script";
+        static string erroroutputTextPath = "./error";
         static int isCsharpProject = 1;
         static void Main(string[] argus)
         {
@@ -62,7 +63,10 @@ namespace ExcelToJsonConverter
                    ReadExcelFile(excelfileArrays[index]); 
                 }));
             }
-            
+            if(isCsharpProject == 1)
+            {
+                MakeSocketDefaultCsClassFile();
+            }
             foreach(var autoTask in excelTask)
             {
                 autoTask.Wait();
@@ -77,13 +81,21 @@ namespace ExcelToJsonConverter
                 for(int i=0;i < package.Workbook.Worksheets.Count; i++)
                 {
                     var classResult = new Dictionary<string, string>();
-                    var result = new List<Dictionary<string, object>>();
+                    var result = new Dictionary<string,Dictionary<string, object>>();
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[i];
+                    if (worksheet.Name.Contains("#") || string.IsNullOrEmpty(worksheet.Name)||
+                        worksheet.Name.Contains("Sheet"))
+                    {
+                        continue;
+                    }
                     for (int row = 3; row <= worksheet.Dimension.Rows; row++)
                     { // Assuming header is in the first row
                         Dictionary<string, object> rowData = new Dictionary<string, object>();
-                       
-
+                        object celValue = worksheet.Cells[row, 1].Value;
+                        if(celValue==null)
+                        {
+                            continue;
+                        }
                         for (int col = 1; col <= worksheet.Dimension.Columns; col++)
                         {
                             //변수명
@@ -98,6 +110,11 @@ namespace ExcelToJsonConverter
                             }
                             object cellValue = worksheet.Cells[row, col].Value;
                             Type type = GetTypeFromString(worksheet.Cells[2, col].Value?.ToString());
+
+                            if(cellValue==null)
+                            {
+                                break;
+                            }
 
                             switch (type){
                                 case Type intType when intType == typeof(int):
@@ -181,7 +198,7 @@ namespace ExcelToJsonConverter
                                     break;
                             }
                         }
-                        result.Add(rowData);
+                        result.Add(worksheet.Cells[row, 1].Value.ToString(), rowData);
                     }
 
                     MakeJsonFile(worksheet.Name, result);
@@ -191,6 +208,12 @@ namespace ExcelToJsonConverter
                         if (header == null || header.Contains("#"))
                         {
                             continue;
+                        }
+                        string cellvalue = worksheet.Cells[2, col].Value.ToString();
+
+                        if (cellvalue == "datetime"|| cellvalue == "Datetime")
+                        {
+                            worksheet.Cells[2, col].Value = "DateTime";
                         }
                         classResult.Add(header, worksheet.Cells[2, col].Value?.ToString());
                     }
@@ -220,6 +243,23 @@ namespace ExcelToJsonConverter
             return string.Concat(first, midle, last);
         }
         //C# SerealizeField Class 
+        static void MakeSocketDefaultCsClassFile()
+        {
+            string makedFilePath = $"{outputScriptPath}";
+
+            if (Directory.Exists(makedFilePath) == false)
+            {
+                Directory.CreateDirectory(makedFilePath);
+            }
+
+            string makedFile = $"{outputScriptPath}/JBaseData.cs";
+            string insertText = "using System;\n\n[System.Serializable]\n";
+
+    
+            insertText += $"public record JBaseData \n" + '{';
+            insertText += "\n};";
+            File.WriteAllText(makedFile, insertText);
+        }
         static void MakeClassFile(string fileName, Dictionary<string, string> fileValues)
         {
             if (Directory.Exists(outputScriptPath) == false)
@@ -229,8 +269,8 @@ namespace ExcelToJsonConverter
  
             string className = UpperCaseFirstLetter(fileName);
             string makedFile = $"{outputScriptPath}/J{className}Data.cs";
-            string insertText = "[System.Serializable]\n";
-            insertText += $"public class J{className}Data\n" + '{';
+            string insertText = "using System;\n\n[System.Serializable]\n";
+            insertText += $"public record J{className}Data : JBaseData\n" + '{';
             for(int i = 0; i < fileValues.Count; i++)
             {
                 insertText += $"\n\tpublic {fileValues.ElementAt(i).Value} {fileValues.ElementAt(i).Key};";
@@ -238,7 +278,7 @@ namespace ExcelToJsonConverter
             insertText += "\n}";
             File.WriteAllText(makedFile, insertText);
         }
-        static void MakeJsonFile(string fileName, List<Dictionary<string, object>> fileValues)
+        static void MakeJsonFile(string fileName, Dictionary<string,Dictionary<string, object>> fileValues)
         {
             if (Directory.Exists(outputJsonPath) == false)
             {

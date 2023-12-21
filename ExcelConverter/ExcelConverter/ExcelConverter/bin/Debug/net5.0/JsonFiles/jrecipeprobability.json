@@ -1,0 +1,98 @@
+{
+  "1": {
+    "ID": 1,
+    "RecipeID": 16,
+    "Probability": [
+      "100"
+    ],
+    "GroupID": 1
+  },
+  "2": {
+    "ID": 2,
+    "RecipeID": 16,
+    "Probability": [
+      "100"
+    ],
+    "GroupID": 2
+  },
+  "3": {
+    "ID": 3,
+    "RecipeID": 16,
+    "Probability": [
+      "50"
+    ],
+    "GroupID": 3
+  },
+  "4": {
+    "ID": 4,
+    "RecipeID": 85,
+    "Probability": [
+      "50"
+    ],
+    "GroupID": 3
+  },
+  "5": {
+    "ID": 5,
+    "RecipeID": 38,
+    "Probability": [
+      "30"
+    ],
+    "GroupID": 4
+  },
+  "6": {
+    "ID": 6,
+    "RecipeID": 16,
+    "Probability": [
+      "30"
+    ],
+    "GroupID": 4
+  },
+  "7": {
+    "ID": 7,
+    "RecipeID": 85,
+    "Probability": [
+      "40"
+    ],
+    "GroupID": 4
+  },
+  "8": {
+    "ID": 8,
+    "RecipeID": 16,
+    "Probability": [
+      "25"
+    ],
+    "GroupID": 5
+  },
+  "9": {
+    "ID": 9,
+    "RecipeID": 38,
+    "Probability": [
+      "25"
+    ],
+    "GroupID": 5
+  },
+  "10": {
+    "ID": 10,
+    "RecipeID": 85,
+    "Probability": [
+      "25"
+    ],
+    "GroupID": 5
+  },
+  "11": {
+    "ID": 11,
+    "RecipeID": 39,
+    "Probability": [
+      "25"
+    ],
+    "GroupID": 5
+  },
+  "12": {
+    "ID": 12,
+    "RecipeID": 84,
+    "Probability": [
+      "25"
+    ],
+    "GroupID": 5
+  }
+}

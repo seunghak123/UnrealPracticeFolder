@@ -1,0 +1,13 @@
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\bin\Release\netcoreapp2.0\ExcelConverter.deps.json
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\bin\Release\netcoreapp2.0\ExcelConverter.runtimeconfig.json
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\bin\Release\netcoreapp2.0\ExcelConverter.runtimeconfig.dev.json
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\bin\Release\netcoreapp2.0\ExcelConverter.dll
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\bin\Release\netcoreapp2.0\ExcelConverter.pdb
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.csproj.AssemblyReference.cache
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.AssemblyInfoInputs.cache
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.AssemblyInfo.cs
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.csproj.CoreCompileInputs.cache
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.dll
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.pdb
+C:\Users\dhtmd\Desktop\assortrack\UnrealPracticeFolder\ExcelConverter\ExcelConverter\ExcelConverter\obj\Release\netcoreapp2.0\ExcelConverter.genruntimeconfig.cache

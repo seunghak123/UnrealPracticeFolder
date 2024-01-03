@@ -1,0 +1,620 @@
+{
+  "version": 2,
+  "dgSpecHash": "naIPZ/kNNJcBsfPgqklmZieXg8lMN5Ll2hXXoaIoZkWxiXi14PdybvpaVPTme6NjHemcxs/a6Zti8kcw62caoA==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\dhtmd\\Desktop\\assortrack\\UnrealPracticeFolder\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dhtmd\\.nuget\\packages\\epplus\\6.2.8\\epplus.6.2.8.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.30\\microsoft.extensions.configuration.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.30\\microsoft.extensions.configuration.abstractions.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\3.1.30\\microsoft.extensions.configuration.fileextensions.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.configuration.json\\3.1.30\\microsoft.extensions.configuration.json.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.30\\microsoft.extensions.fileproviders.abstractions.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.30\\microsoft.extensions.fileproviders.physical.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.30\\microsoft.extensions.filesystemglobbing.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.30\\microsoft.extensions.primitives.3.1.30.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.io.recyclablememorystream\\2.2.1\\microsoft.io.recyclablememorystream.2.2.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.win32.primitives\\4.0.1\\microsoft.win32.primitives.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\netstandard.library\\1.6.0\\netstandard.library.1.6.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\officeopenxml.core.excelpackage\\1.0.0\\officeopenxml.core.excelpackage.1.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.collections\\4.3.0\\runtime.any.system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.diagnostics.tools\\4.3.0\\runtime.any.system.diagnostics.tools.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.diagnostics.tracing\\4.3.0\\runtime.any.system.diagnostics.tracing.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.globalization\\4.3.0\\runtime.any.system.globalization.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.globalization.calendars\\4.3.0\\runtime.any.system.globalization.calendars.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.io\\4.3.0\\runtime.any.system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.reflection\\4.3.0\\runtime.any.system.reflection.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.reflection.extensions\\4.3.0\\runtime.any.system.reflection.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.reflection.primitives\\4.3.0\\runtime.any.system.reflection.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.resources.resourcemanager\\4.3.0\\runtime.any.system.resources.resourcemanager.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.runtime\\4.3.0\\runtime.any.system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.runtime.handles\\4.3.0\\runtime.any.system.runtime.handles.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.runtime.interopservices\\4.3.0\\runtime.any.system.runtime.interopservices.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.text.encoding\\4.3.0\\runtime.any.system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.text.encoding.extensions\\4.3.0\\runtime.any.system.text.encoding.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.threading.tasks\\4.3.0\\runtime.any.system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.threading.timer\\4.3.0\\runtime.any.system.threading.timer.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.native.system\\4.0.0\\runtime.native.system.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.native.system.io.compression\\4.1.0\\runtime.native.system.io.compression.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.native.system.net.http\\4.0.1\\runtime.native.system.net.http.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.native.system.security.cryptography\\4.0.0\\runtime.native.system.security.cryptography.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.microsoft.win32.primitives\\4.3.0\\runtime.win.microsoft.win32.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.system.console\\4.3.0\\runtime.win.system.console.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.system.diagnostics.debug\\4.3.0\\runtime.win.system.diagnostics.debug.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.system.io.filesystem\\4.3.0\\runtime.win.system.io.filesystem.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.system.net.primitives\\4.3.0\\runtime.win.system.net.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.system.net.sockets\\4.3.0\\runtime.win.system.net.sockets.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.system.runtime.extensions\\4.3.0\\runtime.win.system.runtime.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.buffers\\4.0.0\\system.buffers.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.collections\\4.0.11\\system.collections.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.collections.concurrent\\4.0.12\\system.collections.concurrent.4.0.12.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.console\\4.0.0\\system.console.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.diagnostics.debug\\4.0.11\\system.diagnostics.debug.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.0.0\\system.diagnostics.diagnosticsource.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.diagnostics.tools\\4.0.1\\system.diagnostics.tools.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.diagnostics.tracing\\4.1.0\\system.diagnostics.tracing.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.drawing.common\\4.7.3\\system.drawing.common.4.7.3.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.globalization\\4.0.11\\system.globalization.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.globalization.calendars\\4.0.1\\system.globalization.calendars.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.globalization.extensions\\4.0.1\\system.globalization.extensions.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.io\\4.1.0\\system.io.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.io.compression\\4.1.0\\system.io.compression.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.io.compression.zipfile\\4.0.1\\system.io.compression.zipfile.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.io.filesystem\\4.0.1\\system.io.filesystem.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.io.filesystem.primitives\\4.0.1\\system.io.filesystem.primitives.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.io.packaging\\4.0.0\\system.io.packaging.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.linq\\4.1.0\\system.linq.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.linq.expressions\\4.1.0\\system.linq.expressions.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.net.http\\4.1.0\\system.net.http.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.net.primitives\\4.0.11\\system.net.primitives.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.net.sockets\\4.1.0\\system.net.sockets.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.objectmodel\\4.0.12\\system.objectmodel.4.0.12.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.private.uri\\4.3.0\\system.private.uri.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection\\4.1.0\\system.reflection.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection.emit\\4.0.1\\system.reflection.emit.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.0.1\\system.reflection.emit.ilgeneration.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection.emit.lightweight\\4.0.1\\system.reflection.emit.lightweight.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection.extensions\\4.0.1\\system.reflection.extensions.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection.primitives\\4.0.1\\system.reflection.primitives.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.reflection.typeextensions\\4.1.0\\system.reflection.typeextensions.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.resources.resourcemanager\\4.0.1\\system.resources.resourcemanager.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime.handles\\4.0.1\\system.runtime.handles.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime.interopservices\\4.1.0\\system.runtime.interopservices.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime.interopservices\\4.3.0\\system.runtime.interopservices.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime.interopservices.runtimeinformation\\4.0.0\\system.runtime.interopservices.runtimeinformation.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime.numerics\\4.0.1\\system.runtime.numerics.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.claims\\4.3.0\\system.security.claims.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.algorithms\\4.2.0\\system.security.cryptography.algorithms.4.2.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.cng\\4.7.0\\system.security.cryptography.cng.4.7.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.csp\\4.0.0\\system.security.cryptography.csp.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.encoding\\4.0.0\\system.security.cryptography.encoding.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.openssl\\4.0.0\\system.security.cryptography.openssl.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.primitives\\4.0.0\\system.security.cryptography.primitives.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.x509certificates\\4.1.0\\system.security.cryptography.x509certificates.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.principal\\4.3.0\\system.security.principal.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.principal.windows\\4.3.0\\system.security.principal.windows.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.text.encoding\\4.0.11\\system.text.encoding.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.text.encoding.codepages\\4.7.1\\system.text.encoding.codepages.4.7.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.text.encoding.extensions\\4.0.11\\system.text.encoding.extensions.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.text.regularexpressions\\4.1.0\\system.text.regularexpressions.4.1.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.threading\\4.0.11\\system.threading.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.threading.overlapped\\4.3.0\\system.threading.overlapped.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.threading.tasks\\4.0.11\\system.threading.tasks.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.threading.tasks.extensions\\4.0.0\\system.threading.tasks.extensions.4.0.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.threading.timer\\4.0.1\\system.threading.timer.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.xml.xpath.xdocument\\4.0.1\\system.xml.xpath.xdocument.4.0.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\5.0.17\\microsoft.netcore.app.runtime.win-x86.5.0.17.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\5.0.17\\microsoft.windowsdesktop.app.runtime.win-x86.5.0.17.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\5.0.17\\microsoft.aspnetcore.app.runtime.win-x86.5.0.17.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.1.0(으)로 다운그레이드된 패키지 System.IO을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Console 4.0.0 -> runtime.win.System.Console 4.3.0 -> System.IO (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO (>= 4.1.0)",
+      "libraryId": "System.IO",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.IO.FileSystem.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Console 4.0.0 -> runtime.win.System.Console 4.3.0 -> System.IO.FileSystem.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem.Primitives (>= 4.0.1)",
+      "libraryId": "System.IO.FileSystem.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Resources.ResourceManager을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Console 4.0.0 -> runtime.win.System.Console 4.3.0 -> System.Resources.ResourceManager (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Resources.ResourceManager (>= 4.0.1)",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Text.Encoding을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Console 4.0.0 -> runtime.win.System.Console 4.3.0 -> System.Text.Encoding (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Text.Encoding (>= 4.0.11)",
+      "libraryId": "System.Text.Encoding",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Threading.Tasks을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Console 4.0.0 -> runtime.win.System.Console 4.3.0 -> System.Threading.Tasks (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Threading.Tasks (>= 4.0.11)",
+      "libraryId": "System.Threading.Tasks",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Collections을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Collections (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Collections (>= 4.0.11)",
+      "libraryId": "System.Collections",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Diagnostics.Debug을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Diagnostics.Debug (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Diagnostics.Debug (>= 4.0.11)",
+      "libraryId": "System.Diagnostics.Debug",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.1.0(으)로 다운그레이드된 패키지 System.IO을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO (>= 4.1.0)",
+      "libraryId": "System.IO",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.IO.FileSystem.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO.FileSystem.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem.Primitives (>= 4.0.1)",
+      "libraryId": "System.IO.FileSystem.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Resources.ResourceManager을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Resources.ResourceManager (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Resources.ResourceManager (>= 4.0.1)",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Runtime.Handles을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Runtime.Handles (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Runtime.Handles (>= 4.0.1)",
+      "libraryId": "System.Runtime.Handles",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Text.Encoding을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Text.Encoding (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Text.Encoding (>= 4.0.11)",
+      "libraryId": "System.Text.Encoding",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Threading.Tasks을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Threading.Tasks (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Threading.Tasks (>= 4.0.11)",
+      "libraryId": "System.Threading.Tasks",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 Microsoft.Win32.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Primitives 4.0.11 -> runtime.win.System.Net.Primitives 4.3.0 -> Microsoft.Win32.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> Microsoft.Win32.Primitives (>= 4.0.1)",
+      "libraryId": "Microsoft.Win32.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Collections을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Primitives 4.0.11 -> runtime.win.System.Net.Primitives 4.3.0 -> System.Collections (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Collections (>= 4.0.11)",
+      "libraryId": "System.Collections",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Globalization을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Primitives 4.0.11 -> runtime.win.System.Net.Primitives 4.3.0 -> System.Globalization (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Globalization (>= 4.0.11)",
+      "libraryId": "System.Globalization",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Resources.ResourceManager을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Primitives 4.0.11 -> runtime.win.System.Net.Primitives 4.3.0 -> System.Resources.ResourceManager (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Resources.ResourceManager (>= 4.0.1)",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Runtime.Handles을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Primitives 4.0.11 -> runtime.win.System.Net.Primitives 4.3.0 -> System.Runtime.Handles (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Runtime.Handles (>= 4.0.1)",
+      "libraryId": "System.Runtime.Handles",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Collections을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Collections (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Collections (>= 4.0.11)",
+      "libraryId": "System.Collections",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Diagnostics.Debug을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Diagnostics.Debug (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Diagnostics.Debug (>= 4.0.11)",
+      "libraryId": "System.Diagnostics.Debug",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Globalization을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Globalization (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Globalization (>= 4.0.11)",
+      "libraryId": "System.Globalization",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.1.0(으)로 다운그레이드된 패키지 System.IO을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.IO (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO (>= 4.1.0)",
+      "libraryId": "System.IO",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.IO.FileSystem을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.IO.FileSystem (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem (>= 4.0.1)",
+      "libraryId": "System.IO.FileSystem",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.IO.FileSystem.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.IO.FileSystem.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.IO.FileSystem.Primitives (>= 4.0.1)",
+      "libraryId": "System.IO.FileSystem.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Net.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Net.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Primitives (>= 4.0.11)",
+      "libraryId": "System.Net.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Resources.ResourceManager을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Resources.ResourceManager (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Resources.ResourceManager (>= 4.0.1)",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Runtime.Handles을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Runtime.Handles (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Runtime.Handles (>= 4.0.1)",
+      "libraryId": "System.Runtime.Handles",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Threading.Tasks을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Threading.Tasks (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Threading.Tasks (>= 4.0.11)",
+      "libraryId": "System.Threading.Tasks",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Collections을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Collections (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.Collections (>= 4.0.11)",
+      "libraryId": "System.Collections",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Diagnostics.Debug을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Diagnostics.Debug (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.Diagnostics.Debug (>= 4.0.11)",
+      "libraryId": "System.Diagnostics.Debug",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.1.0(으)로 다운그레이드된 패키지 System.IO을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO (>= 4.1.0)",
+      "libraryId": "System.IO",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.IO.FileSystem.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO.FileSystem.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem.Primitives (>= 4.0.1)",
+      "libraryId": "System.IO.FileSystem.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Resources.ResourceManager을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Resources.ResourceManager (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.Resources.ResourceManager (>= 4.0.1)",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Runtime.Handles을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Runtime.Handles (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> System.Runtime.Handles (>= 4.0.1)",
+      "libraryId": "System.Runtime.Handles",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Text.Encoding을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Text.Encoding (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.Text.Encoding (>= 4.0.11)",
+      "libraryId": "System.Text.Encoding",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Threading.Tasks을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Threading.Tasks (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.IO.Packaging 4.0.0 -> System.IO.FileSystem 4.0.1 -> System.Threading.Tasks (>= 4.0.11)",
+      "libraryId": "System.Threading.Tasks",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 Microsoft.Win32.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Security.Principal.Windows 4.3.0 -> Microsoft.Win32.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> Microsoft.Win32.Primitives (>= 4.0.1)",
+      "libraryId": "Microsoft.Win32.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Text.Encoding을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Net.Sockets 4.1.0 -> runtime.win.System.Net.Sockets 4.3.0 -> System.Security.Principal.Windows 4.3.0 -> System.Text.Encoding (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> NETStandard.Library 1.6.0 -> System.Text.Encoding (>= 4.0.11)",
+      "libraryId": "System.Text.Encoding",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Collections을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Collections (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Collections (>= 4.0.11)",
+      "libraryId": "System.Collections",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Diagnostics.Debug을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Diagnostics.Debug (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Diagnostics.Debug (>= 4.0.11)",
+      "libraryId": "System.Diagnostics.Debug",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.1.0(으)로 다운그레이드된 패키지 System.IO을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.IO (>= 4.1.0)",
+      "libraryId": "System.IO",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.IO.FileSystem.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO.FileSystem.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem.Primitives (>= 4.0.1)",
+      "libraryId": "System.IO.FileSystem.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Resources.ResourceManager을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Resources.ResourceManager (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Resources.ResourceManager (>= 4.0.1)",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Runtime.Handles을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Runtime.Handles (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> System.Runtime.Handles (>= 4.0.1)",
+      "libraryId": "System.Runtime.Handles",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Text.Encoding을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Text.Encoding (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.Text.Encoding (>= 4.0.11)",
+      "libraryId": "System.Text.Encoding",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Threading.Tasks을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Threading.Tasks (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.Threading.Tasks (>= 4.0.11)",
+      "libraryId": "System.Threading.Tasks",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Collections을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Collections (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.Collections (>= 4.0.11)",
+      "libraryId": "System.Collections",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Diagnostics.Debug을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Diagnostics.Debug (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Diagnostics.Debug (>= 4.0.11)",
+      "libraryId": "System.Diagnostics.Debug",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.1.0(으)로 다운그레이드된 패키지 System.IO을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO (>= 4.1.0)",
+      "libraryId": "System.IO",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.IO.FileSystem.Primitives을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.IO.FileSystem.Primitives (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem.Primitives (>= 4.0.1)",
+      "libraryId": "System.IO.FileSystem.Primitives",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Resources.ResourceManager을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Resources.ResourceManager (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Resources.ResourceManager (>= 4.0.1)",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.1(으)로 다운그레이드된 패키지 System.Runtime.Handles을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Runtime.Handles (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> System.Runtime.Handles (>= 4.0.1)",
+      "libraryId": "System.Runtime.Handles",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Text.Encoding을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Text.Encoding (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.Text.Encoding (>= 4.0.11)",
+      "libraryId": "System.Text.Encoding",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "4.3.0에서 4.0.11(으)로 다운그레이드된 패키지 System.Threading.Tasks을(를) 발견했습니다. 프로젝트에서 패키지를 직접 참조하여 다른 버전을 선택하세요. \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.IO.FileSystem 4.0.1 -> runtime.win.System.IO.FileSystem 4.3.0 -> System.Threading.Tasks (>= 4.3.0) \r\n ExcelConverter -> OfficeOpenXml.Core.ExcelPackage 1.0.0 -> System.Xml.XPath.XDocument 4.0.1 -> System.Xml.ReaderWriter 4.0.11 -> System.Threading.Tasks (>= 4.0.11)",
+      "libraryId": "System.Threading.Tasks",
+      "targetGraphs": [
+        "net5.0/win-x86"
+      ]
+    }
+  ]
+}

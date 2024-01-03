@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IA3f57bjSbFcqUByutRgeJPSU72nG9YUGCxVZMRdecimSww/QQG9u4J3/6q3B7/Faa56peQPVMN2jh+xuzb6Yw==",
+  "dgSpecHash": "PDeh9Af2NPAQKpqAjmHRWWdCTTQltPc9PsmS88WAH8krE7UITltr25Y08VqWNZKZhAAHaGIJ9Hn4RFqIuo0qXw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dhtmd\\Desktop\\assortrack\\UnrealPracticeFolder\\ExcelConverter\\ExcelConverter\\ExcelConverter\\ExcelConverter.csproj",
   "expectedPackageFiles": [
@@ -20,14 +20,20 @@
     "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.any.system.runtime\\4.3.0\\runtime.any.system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\runtime.win.system.runtime.extensions\\4.3.0\\runtime.win.system.runtime.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\system.drawing.common\\4.7.3\\system.drawing.common.4.7.3.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.private.uri\\4.3.0\\system.private.uri.4.3.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.cng\\4.7.0\\system.security.cryptography.cng.4.7.0.nupkg.sha512",
     "C:\\Users\\dhtmd\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
-    "C:\\Users\\dhtmd\\.nuget\\packages\\system.text.encoding.codepages\\4.7.1\\system.text.encoding.codepages.4.7.1.nupkg.sha512"
+    "C:\\Users\\dhtmd\\.nuget\\packages\\system.text.encoding.codepages\\4.7.1\\system.text.encoding.codepages.4.7.1.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.17\\microsoft.netcore.app.runtime.win-x64.5.0.17.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.17\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.17.nupkg.sha512",
+    "C:\\Users\\dhtmd\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.17\\microsoft.aspnetcore.app.runtime.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }

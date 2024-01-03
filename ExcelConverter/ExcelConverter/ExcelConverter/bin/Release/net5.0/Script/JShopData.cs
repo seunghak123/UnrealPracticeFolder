@@ -1,5 +1,7 @@
+using System;
+
 [System.Serializable]
-public class JShopData
+public record JShopData : JBaseData
 {
 	public int index;
 	public int shop_id;
